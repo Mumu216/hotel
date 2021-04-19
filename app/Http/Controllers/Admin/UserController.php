@@ -4,33 +4,53 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function loginForm()
+    {
+        return view('backend.layouts.login');
+    }
+
+
+    public function dologin(Request $request)
+    {
+        //dd($request->all());
+        $request->validate([
+   
+            'email'=>'required|email',
+            'password'=>'required|min:5'
+                  
     
-   public function list(){
-    $title= "User Dashboard";
-    $users=user::all();
-    return view('backend.layouts.user.list', compact('title','users'));
+            ]);
 
-   }
+            $loginData=$request->only('email','password');
+          //  dd($loginData);
 
-   public function createForm()
-   {
-      $title='Create New User';
-      return view('backend.layouts.user.create', compact('title',));
-   }
+     
+        if(Auth::attempt($loginData))
 
-   public function store(Request $request)
-   {
+        { 
+          
+            return redirect()->route('dashboard')->with('success','User Login Success.');
+        }
 
-    User::create([
+        return back()->withErrors([
+         
+         'email'=>'Invalid Credentials.',
+
+
+        ]);
+    }  
       
-        
+    public function logout()
+
+    {
+       Auth::logout();
+       return redirect()->route('admin.login')->with('success','Logout Successfull.');
+    }
 
 
-    ]);
-   }
 
 }

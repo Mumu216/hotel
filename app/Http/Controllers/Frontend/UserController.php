@@ -53,7 +53,8 @@ class UserController extends Controller
            return view('frontend.layouts.login');
         }
 
-        public function doLogin(Request $request) {         
+        public function doLogin(Request $request)
+        {         
         $request->validate([
    
             'email'=>'required|email',
@@ -61,8 +62,9 @@ class UserController extends Controller
                   
     
             ]);
-
-            $loginData=$request->except('_token');
+           
+            $loginData=$request->only('email','password');
+            
 
       // dd($loginData);
         if(Auth::attempt($loginData))

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Admin;
@@ -10,6 +11,7 @@ use App\Admin;
 class AdminController extends Controller
 {
    public function dashboard(){
+       dd("ök");
        $title = "Admin Dashboard";
        return view('backend.layouts.dashboard', compact('title'));
    }

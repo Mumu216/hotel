@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RoomTypeController;
 use App\Http\Controllers\Admin\ReceptionistController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+
 
 
 
@@ -60,14 +62,41 @@ Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
 Route::group(['prefix'=>'admin'],function(){
 
+    
+    
+
+Route::get('login',[AdminUserController::class,'loginForm'])->name('admin.login');
+Route::post('do-login',[AdminUserController::class,'dologin'])->name('admin.dologin');
+
+
 Route::get('/',function(){
     $title='Dashboard';
     return view('backend.master', compact('title'));
-});
+
+}); 
+
+
+
+
+//Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
+
+// admin login route here
+
+//Route::get('login',[AdminUserController::class,'loginForm'])->name('admin.login');
+//Route::post('do-login',[AdminUserController::class,'dologin'])->name('admin.dologin');
+Route::group(['middleware'=>'admin-auth'], function(){
 
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
-Route::get('/admin/admin',[AdminController::class,'admin'])->name('admin');
-//Route::get('/admin/users',[AdminController::class,'users'])->name('users');
+Route::get('logout',[AdminUserController::class,'logout'])->name('admin.logout');
+
+
+
+
+
+
+
+//Route::get('/admin/admin',[AdminController::class,'admin'])->name('admin');
+Route::get('/admin/users',[AdminController::class,'users'])->name('users');
 Route::get('/admin/room',[AdminController::class,'room'])->name('room');
 Route::get('/admin/facilities',[AdminController::class,'facilities'])->name('facilities');
 Route::get('/admin/room service',[AdminController::class,'room service'])->name('room service');
@@ -104,10 +133,9 @@ Route::get('/payment/list',[PaymentController::class,'list'])->name('payment.lis
 Route::get('/payment/createform',[PaymentController::class,'createForm'])->name('payment.createform');
 Route::post('/payment/store',[PaymentController::class,'store'])->name('payment.store');
 
-// users route
 
-Route::get('/user/list',[UserController::class,'list'])->name('user.list');
-Route::get('/user/createform',[UserController::class,'createForm'])->name('user.create');
+
+
 
 // category routes
 
@@ -129,6 +157,7 @@ Route::post('/receptionist/store',[ReceptionistController::class,'store'])->name
 
 
 
+});
 
 
 });

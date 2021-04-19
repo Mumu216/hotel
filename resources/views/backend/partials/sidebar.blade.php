@@ -10,7 +10,7 @@
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin')}}">
+            <a class="nav-link" href="{{ route('admin.login')}}">
               <span data-feather="file"></span>
               Admin
             </a>
@@ -19,7 +19,7 @@
 
           
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('user.list')}}">
+            <a class="nav-link" href="{{ route('users')}}">
               <span data-feather="file"></span>
               User
             </a>

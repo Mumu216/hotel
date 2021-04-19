@@ -40,26 +40,72 @@
   </head>
   <body>
 
-  
- @include('backend.partials.topbar')
-
-<div class="container-fluid">
-  <div class="row">
-    @include('backend.partials.sidebar')
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Admin</h1>
-
-         </div>
-
-       @yield('content')
 
 
- </main>
 
-  </div>
+
+<div class="row">
+
+       <div class="col-md-3">
+       
 </div>
+
+    <div class="col-md-6" style="padding:50px; ">
+       
+       <form action="{{route('admin.dologin')}}"  method="post">
+         @csrf
+         <h1>User Login</h1>
+         @if(session()->has('success'))
+
+          <div class="alert alert-success">
+             {{session()->get('success')}}  
+          
+          </div>
+
+    @endif
+
+         @if($errors->any())
+             
+             @foreach  ($errors->all()  as $error)
+               <div class="alert alert-danger">{{$error}}</div>
+          @endforeach
+       @endif
+
+    
+
+
+       
+
+
+     <div class="form-group">
+          <label for="email"> Enter User Email:</label>
+          <input required class="form-control" type="email" id="email"  name="email" placeholder="Enter User Email">
+     </div>
+
+     <div class="form-group">
+          <label for="password"> Enter User Password:</label>
+          <input class="form-control" type="password" id="password"  name="password" placeholder="Enter User Password">
+     </div>
+
+     <button type="Submit"  class="btn btn-success"> Login</button>
+
+     </form>
+       
+       
+    </div>
+
+    <div class="col-md-3">
+       
+       
+       </div>
+
+
+
+       
+</div>
+
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" ></script>
@@ -72,3 +118,19 @@
     
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
