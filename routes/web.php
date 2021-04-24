@@ -17,15 +17,6 @@ use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 
-
-
-
-
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,8 +34,11 @@ Route::get('/ contact', 'FrontController@contact');
 
 // website  /frontened route here
 
-Route::get('/frontend/website',[HomeController::class,'website'])->name('website');
-Route::get('/registration/form',[UserController::class,'registrationForm'])->name('registration.form');
+Route::get('/f',[HomeController::class,'website'])->name('website');
+
+Route::get('/',[HomeController::class,'index'])->name('index');
+
+Route::get('/registration',[UserController::class,'registrationForm'])->name('registration.form');
 Route::post('/registration/create',[UserController::class,'register'])->name('register');
 Route::get('/abc', function(){
     return view('frontend.layouts.homef');
@@ -59,25 +53,18 @@ Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
 
 
-
-
-
 // admin route here
 
 Route::group(['prefix'=>'admin'],function(){
 
-    
-    
-
 Route::get('login',[AdminUserController::class,'loginForm'])->name('admin.login');
 Route::post('do-login',[AdminUserController::class,'dologin'])->name('admin.dologin');
-
 
 Route::get('/',function(){
     $title='Dashboard';
     return view('backend.master', compact('title'));
 
-}); 
+});
 
 
 
@@ -176,4 +163,4 @@ Route::get('/facilities/list',[FacilitiesController::class,'list'])->name('facil
 
 });
 
-    
+

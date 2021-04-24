@@ -1,40 +1,25 @@
-<header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
-      </a>
-     
-     @auth()
+<!DOCTYPE html>
+<html lang="en">
 
-         <span style="color:white">{{auth()->user()->name}}</span>
-          <a href="{{route('logout')}}">Logout</a>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <title>Royal Hotel</title>
+    <!-- Bootstrap CSS -->
+    {{-- <link rel="stylesheet" href="https://technext.github.io/royal/css/bootstrap.css"> --}}
+    <link rel="stylesheet" href="{{ url('/frontend/vendors/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url('/frontend/vendors/linericon/style.css') }}">
+    <link rel="stylesheet" href="{{ url('/frontend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/frontend/vendors/owl-carousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ url('/frontend/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/frontend/vendors/nice-select/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ url('/frontend/vendors/owl-carousel/owl.carousel.min.css') }}">
+    <!-- main css -->
+    <link rel="stylesheet" href="{{ url('/frontend/vendors/style.css') }}">
+    <link rel="stylesheet" href="{{ url('/frontend/css/responsive.css') }}">
+</head>
 
-        
-         @else
-      <a href="{{route('login.form')}}">Login</a>
-      <a href="{{route('registration.form')}}">Registration</a> 
-  @endauth
-     
-    </div>
-  </div>
-</header>
+<body>
