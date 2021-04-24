@@ -80,7 +80,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{route('facilities')}}">
+            <a class="nav-link" href="{{route('facilities.list')}}">
               <span data-feather="file"></span>
               Facilities 
             </a>
@@ -88,7 +88,7 @@
 
           
           <li class="nav-item">
-            <a class="nav-link" href="{{route('room service')}}">
+            <a class="nav-link" href="{{route('roomservice.list')}}">
               <span data-feather="file"></span>
               Room Service 
             </a>

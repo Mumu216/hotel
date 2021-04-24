@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RoomTypeController;
 use App\Http\Controllers\Admin\ReceptionistController;
+use App\Http\Controllers\Admin\RoomServiceController;
+use App\Http\Controllers\Admin\FacilitiesController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
@@ -44,7 +46,9 @@ Route::get('/ contact', 'FrontController@contact');
 Route::get('/frontend/website',[HomeController::class,'website'])->name('website');
 Route::get('/registration/form',[UserController::class,'registrationForm'])->name('registration.form');
 Route::post('/registration/create',[UserController::class,'register'])->name('register');
-
+Route::get('/abc', function(){
+    return view('frontend.layouts.homef');
+});
 
 
 Route::get('/login',[UserController::class,'loginForm'])->name('login.form');
@@ -99,7 +103,7 @@ Route::get('logout',[AdminUserController::class,'logout'])->name('admin.logout')
 Route::get('/admin/users',[AdminController::class,'users'])->name('users');
 Route::get('/admin/room',[AdminController::class,'room'])->name('room');
 Route::get('/admin/facilities',[AdminController::class,'facilities'])->name('facilities');
-Route::get('/admin/room service',[AdminController::class,'room service'])->name('room service');
+//Route::get('/admin/room service',[AdminController::class,'room service'])->name('room service');
 
 
 
@@ -149,11 +153,21 @@ Route::get('/roomtype/list',[RoomTypeController::class,'list'])->name('roomtype.
 Route::get('/roomtype/createform',[RoomTypeController::class,'createform'])->name('roomtype.createform');
 Route::post('/roomtype/store',[RoomTypeController::class,'store'])->name('roomtype.store');
 
-// rece[tionist routes
+// receptionist routes
 
 Route::get('/receptionist/list',[ReceptionistController::class,'list'])->name('receptionist.list');
 Route::get('/receptionist/createform',[ReceptionistController::class,'createform'])->name('receptionist.createform');
 Route::post('/receptionist/store',[ReceptionistController::class,'store'])->name('receptionist.store');
+
+//roomservice routes
+
+Route::get('/roomservice/list',[RoomServiceController::class,'list'])->name('roomservice.list');
+Route::get('/roomservice/createform',[RoomServiceController::class,'createform'])->name('roomservice.createform');
+Route::post('/roomservice/store',[RoomServiceController::class,'store'])->name('roomservice.store');
+
+// facilities routes
+
+Route::get('/facilities/list',[FacilitiesController::class,'list'])->name('facilities.list');
 
 
 

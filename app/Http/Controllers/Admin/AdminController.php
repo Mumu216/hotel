@@ -11,7 +11,7 @@ use App\Admin;
 class AdminController extends Controller
 {
    public function dashboard(){
-       dd("ök");
+       //dd("ök");
        $title = "Admin Dashboard";
        return view('backend.layouts.dashboard', compact('title'));
    }
@@ -43,12 +43,6 @@ public function receptionist(){
 public function facilities(){
     return view('backend.layouts.facilities');
 }
-
-public function roomservice(){
-    return view('backend.layouts.room service');
-}
-
-
 
 
    

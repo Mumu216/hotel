@@ -17,19 +17,25 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
-            // if(Auth::user()->role=='admin' || Auth::user()->role=='manager')
-            // {
-                return $next($request);
-            // }else
-            // {
-            //     Auth::logout();
-            //     return redirect()->route('admin.login')->with('success','You are not admin.');
-            // }
+       
+        if(Auth::check())
+        {   
+            if(Auth::User()->role=='admin')
+            {
+            return $next($request);
 
-        }else{
-           Auth::logout();
+            }  
+            else
+            {
+                Auth::logout();
+                return redirect()->route('admin.login')->with('success','You are not admin');
+            }
+        }
+        else{
+            Auth::logout();
             return redirect()->route('admin.login');
         }
+
+
     }
 }
