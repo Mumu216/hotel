@@ -68,7 +68,8 @@ class RoomController extends Controller
 
         Room::create([
          
-         'room_id'=>$request->room_id,
+          'id'=>$request->id,
+          'name'=>$request->name,
           'room_number'=>$request->room_number,
           'price'=>$request-> room_price,
           'category_id'=>$request->category_id,
@@ -77,6 +78,48 @@ class RoomController extends Controller
         ]);
 
         return redirect()->route('room.list');
+
     }
+
+       public function DeleteRoom($id)
+          {
+
+             //dd($id);
+              $room=Room::find($id);
+              //dd($room);
+              $room->delete();
+          
+              return redirect()->back()->with('success','Room deleted Successfully');
+          }
+          public function editRoom($id)
+          { 
+            $room=Room::find($id);
+            $categories=Category::all();
+           // dd($id);
+            return view('backend.layouts.room.edit',compact('room','categories'));
+          }
+
+
+          public function updateRoom(Request $request,$id )
+          {
+             
+            //dd($id);
+            //dd($request->all());
+            Room::find($id)->update([
+
+             'id'=>$request->id,
+             'name'=>$request->name,
+             'room_number'=>$request->room_number,
+             'price'=>$request->room_price,
+             'category_id'=>$request->category_id,
+
+             
+
+
+            ]);
+
+            return redirect()->route('room.list')->with('success','Updated Successfully');
+
+          }
 
 }

@@ -14,10 +14,15 @@ class CreateBookingsTable extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->string('booking_id');
-            $table->string('admin_id');
-            $table->double('booking_price');
-            $table->text('status');
+            $table->id();
+            $table->integer('room_id');
+            $table->integer('user_id');
+            $table->dateTime('booking_from');
+            $table->dateTime('booking_to');
+            $table->text('details')->nullable;
+            $table->integer('rate')->nullable;
+            $table->integer('total')->nullable;
+            
             $table->timestamps();
         });
     }

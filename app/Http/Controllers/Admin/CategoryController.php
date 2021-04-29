@@ -27,7 +27,6 @@ class CategoryController extends Controller
       
       Category::create([
 
-       'id'=>$request->id,
        'category_name'=>$request->category_name,
        'status'=>$request->status,
        'description'=>$request->description,

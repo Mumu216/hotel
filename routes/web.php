@@ -14,9 +14,12 @@ use App\Http\Controllers\Admin\ReceptionistController;
 use App\Http\Controllers\Admin\RoomServiceController;
 use App\Http\Controllers\Admin\FacilitiesController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\RoomController as FrontendRoomController;
+use App\Http\Controllers\Frontend\Bookingcontroller as FrontendBookingController;
+
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,14 +37,15 @@ Route::get('/ contact', 'FrontController@contact');
 
 // website  /frontened route here
 
-Route::get('/f',[HomeController::class,'website'])->name('website');
+//Route::get('/f',[HomeController::class,'website'])->name('website');
 
-Route::get('/',[HomeController::class,'index'])->name('index');
+Route::get('/frontend/website',[HomeController::class,'website'])->name('website');
 
 Route::get('/registration',[UserController::class,'registrationForm'])->name('registration.form');
 Route::post('/registration/create',[UserController::class,'register'])->name('register');
+
 Route::get('/abc', function(){
-    return view('frontend.layouts.homef');
+    return view('frontend.layouts.home1');
 });
 
 
@@ -50,6 +54,16 @@ Route::post('/dologin',[UserController::class,'doLogin'])->name('login');
 
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
+//single page view
+
+Route::get('/show/room/{room_id}',[FrontendRoomController::class,'ShowRoom'])->name('room.show');
+Route::get('/rooms/under/category/{category_id}',[FrontendRoomController::class,'RoomsUnderCategory'])->name('rooms.under.category');
+
+
+
+// Booking route
+Route::get('/book/room/{id}',[FrontendBookingController::class,'BookRoom'])->name('book.room');
+Route::post('/booking',[FrontendBookingController::class,'Booking'])->name('room.booking');
 
 
 
@@ -105,8 +119,9 @@ Route::post('/admin/create',[Ordercontroller::class,'create'])->name('order.crea
 
 //boooking routes
 
-Route::get('/admin/booking', [BookingController::class,'bookinglist'])->name('booking.bookinglist');
-Route::post('/admin/booking/create',[BookingController::class,'create'])->name('booking.create');
+//Route::get('/admin/booking', [BookingController::class,'bookinglist'])->name('booking.bookinglist');
+//Route::post('/admin/booking/create',[BookingController::class,'create'])->name('booking.create');
+Route::get('/show/booking',[BookingController::class,'ShowBooking'])->name('show.booking');
 
 // room routes
 Route::group(['prefix'=>'room'],function()
@@ -116,6 +131,11 @@ Route::group(['prefix'=>'room'],function()
 Route::get('list',[RoomController::class,'list'])->name('room.list');
 route::get('createform',[RoomController::class,'createForm'])->name('room.createform');
 Route::post('store',[RoomController::class,'store'])->name('room.store');
+Route::get('/room/delete/{id}',[RoomController::class,'DeleteRoom'])->name('room.delete');
+Route::get('/room/edit/{id}',[RoomController::class,'editRoom'])->name('room.edit');
+Route::put('/room/update/{id}',[RoomController::class,'updateRoom'])->name('room.update');
+
+
 });
 
 //payment routes

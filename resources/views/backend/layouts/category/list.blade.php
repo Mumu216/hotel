@@ -10,7 +10,7 @@
   <tr>
 
       <th scope="col">#</th>
-      <th scope="col">ID</th>
+      <!--<th scope="col">ID</th>-->
       <th scope="col">Name</th>
       <th scope="col">Status</th>
       <th scope="col">Description</th>
@@ -25,7 +25,6 @@
       @foreach($category_list as $key=>$data)
       <tr>
           <th scope="row">{{$key+1}}</th>
-          <td>{{$data->id}}</td>
           <td>{{$data->category_name}}</td>
           <td>{{$data->status}}</td>
           <td>{{$data->description}}</td>

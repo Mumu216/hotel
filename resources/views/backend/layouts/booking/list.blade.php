@@ -19,36 +19,46 @@
    <tr>
        
        <th scope="col">#</th>
-       <th scope="col">ID</th>
-       <th scope="col">Admin ID</th>
-       <th scope="col">Price</th>
+       <th scope="col">Room</th>
+       <th scope="col">User</th>
+       <th scope="col">From Date</th>
+       <th scope="col">To Date</th>
+       <th scope="col">Rate</th>
+       <th scope="col">Total</th>
        <th scope="col">Status</th>
        <th scope="col">Action</th>
 
 
+
        </tr>
        </thead>
-       <tbody>
+       <tbody
 
-            @foreach($bookings as $key=>$data)
-             <tr>
-                 
-                 <th scope="row"> {{$key+1}}</th>
-                 <td>{{ $data->booking_id}}</td>
-                 <td>{{ $data->admin_id}}</td>
-                 <td>{{ $data->booking_price}}</td>
-                 <td>{{ $data->status}}</td>
+  @foreach($all_Booking as $key=> $data)
 
-                 <td>
+       <tr>
 
-                   <a class="btn btn-success"  href"">View</a>
-                   <a class="btn btn-primary"  href"">Edit</a>
-                   <a class="btn btn-danger"  href"">Delete</a>
+       <td>{{$key+1}}</td>
+       <td>{{$data->room->name}}</td>
+       <td>{{$data->user->name}}</td>
+       <td>{{date("Y-M-d",strtotime($data->booking_from))}} </td>
+       <td>{{date("Y-M-d",strtotime($data->booking_to))}} </td>
+       <td>{{$data->rate}}</td>
+       <td>{{$data->total}}</td>
+       <td>dghdjdjkd</td>
+       <td> <a href="">View</a></td>
 
 
-              </td>
-              </tr>
-          @endforeach
+
+
+
+
+       
+       
+       </tr>
+
+       @endForeach
+
           
           </tbody>
       </table>
@@ -67,7 +77,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
       
-        <form action="{{ route('booking.create')}}" method="post">
+        <form action="" method="post">
         @csrf
       </div>
       <div class="modal-body">

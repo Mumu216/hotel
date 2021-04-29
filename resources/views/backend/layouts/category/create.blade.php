@@ -7,10 +7,7 @@
 <form action="{{ route('category.store')}}"  method="post">
   <div class="col-md-6">
     @csrf
-      <div class-"form-group">
-        <label for="id">Enter Category Id</label>
-        <input id="id" type="number" name="id"  placeholder="Enter Category Id"  class="form-control">
-       </div>
+     
 
 
        <div class-"form-group">

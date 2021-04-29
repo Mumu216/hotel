@@ -27,7 +27,7 @@
 
           
           <li class="nav-item">
-            <a class="nav-link" href="{{route('booking.bookinglist')}}">
+            <a class="nav-link" href="{{route('show.booking')}}">
               <span data-feather="file"></span>
               Booking
             </a>
