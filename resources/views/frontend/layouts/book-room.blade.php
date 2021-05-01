@@ -20,16 +20,15 @@
 
 
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3-g-3">
+      <div class="row">
 
       <form action="{{route('room.booking')}}" method="post">
                 @csrf
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <input type="hidden" value="{{$room->id}}" name="room_id">
-                
-                  <label for="namr">Enter Room Name:{{$room->name}}</label>
-                  <label for="rate">Enter Room Rate:{{$room->price}}</label>
-                
+            <div class="form-group">
+                <input type="hidden" value="{{$room->id}}" name="room_id">               
+                  <div for="name">Enter Room Name: {{$room->name}}</div>
+                  <div for="rate">Enter Room Rate: {{$room->price}}</div>
+                </div>
              
                   <div class="form-group">
                     <label for="">From Date:</label>

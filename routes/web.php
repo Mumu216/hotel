@@ -129,7 +129,8 @@ Route::group(['prefix'=>'room'],function()
 {
 
 Route::get('list',[RoomController::class,'list'])->name('room.list');
-route::get('createform',[RoomController::class,'createForm'])->name('room.createform');
+Route::post('search',[RoomController::class,'search'])->name('room.search');
+Route::get('createform',[RoomController::class,'createForm'])->name('room.createform');
 Route::post('store',[RoomController::class,'store'])->name('room.store');
 Route::get('/room/delete/{id}',[RoomController::class,'DeleteRoom'])->name('room.delete');
 Route::get('/room/edit/{id}',[RoomController::class,'editRoom'])->name('room.edit');

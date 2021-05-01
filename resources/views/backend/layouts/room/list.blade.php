@@ -11,6 +11,33 @@
         </div>
     @endif
 
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+
+
+
+          <div class="col-md-4">
+          <form action="{{route('room.search')}}" method="POST">
+               @csrf
+             <input name="search" type="text"  placeholder="search" class="form-control">
+             <button type="submit" class"btn btn-primary">Search</button>
+          
+          
+             </form>
+          
+          </div>
+       </div>
+
+    @if(isset($search))
+         <p>
+          <span class="alert alert-success"> you are searching for  '{{$search}}' , found ({{count($rooms)}})  </span>
+         
+         </p>
+
+    @endif
+
 <table class="table table-bordered">
   <thead>
   <tr>

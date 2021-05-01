@@ -20,6 +20,28 @@ class RoomController extends Controller
     }
 
 
+    public function search(Request $request)
+    {
+      $search=$request->search;
+      if($search)
+      {
+        $rooms=Room::where('name','like','%'.$search.'%')
+                  ->orwhere('price','like', '%'.$search.'%')->get();
+         
+    } else{
+        
+      $rooms=Room::with('roomCategory')->get();
+
+         }  
+          
+           $title="Search result";
+           return view('backend.layouts.room.list',compact('title','rooms','search'));
+           
+   }
+
+
+
+
     public function createForm()
 
     {

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookingNotification;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Booking;
-//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class BookingController extends Controller
@@ -32,36 +35,47 @@ class BookingController extends Controller
      $toDate=date("Y-m-d",strtotime($request->to_date));
 
        $checkBook=Booking::where('room_id',$request->room_id)
-                        ->whereDate('booking_from',$fromDate)
-                        ->whereDate('booking_to',$toDate)
-                        ->first();
-    dd($checkBook);
+                        ->whereBetween('booking_from',[$fromDate,$toDate])
+                        ->orwhereBetween('booking_to',[$fromDate,$toDate])
+                        ->get();
+    if($checkBook->count()==0)
+    {
+
+          
+       //dd($request->all());
+      $booking= Booking::create([
+
+        'room_id'=>$request->room_id,
+        'user_id'=>auth()->user()->id,
+        'booking_from'=>$request->from_date,
+        'booking_to'=>$request->to_date,
+        'details'=>$request->details,
+        'rate'=>$room->price,
+        'total'=>$room->price*$dayscalculate,
+
+
+         ]);
+
+         // send mail to user
+         Mail::to(Auth::user()->email)->send( new BookingNotification($booking));
+      
+        return redirect()->back()->with('message','Booking Created Successfully');
+      
+       } else{
+
+         
+        return redirect()->back()->with('message','Already booked');
+
+    }
 
                       
-
+    }
 
 
 
 
         
-       //dd($request->all());
-       Booking::create([
-
-       'room_id'=>$request->room_id,
-       'user_id'=>auth()->user()->id,
-       'booking_from'=>$request->from_date,
-       'booking_to'=>$request->to_date,
-       'details'=>$request->details,
-       'rate'=>$room->price,
-       'total'=>$room->price*$dayscalculate,
-
-
-
-       ]);
-
-       return redirect()->back()->with('message','Booking created Successfully');
-
-    }
+       //dd($request->al
 
     
 }
