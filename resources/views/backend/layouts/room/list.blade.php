@@ -88,7 +88,7 @@
           </tbody>
     </table>
 
-         
+  {{-- {{ $rooms->links() }} --}}
          
          
  @endsection

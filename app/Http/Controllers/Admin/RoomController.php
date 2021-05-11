@@ -15,7 +15,7 @@ class RoomController extends Controller
     {
       
         $title='Room List';
-        $rooms=Room::with('roomCategory')->get();
+        $rooms=Room::with('roomCategory')->paginate(5);
         return view('backend.layouts.room.list',compact('title','rooms'));
     }
 

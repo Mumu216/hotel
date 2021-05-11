@@ -1,5 +1,5 @@
 <!--================Header Area =================-->
-<header class="header_area">
+<header class="header_area" style="position: sticky ">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,7 +49,7 @@
                  </div>
 
 
-                 <!--   <li class="nav-item">
+                    <li class="nav-item">
                         <span class="nav-link">||</span>
                     </li>
                     @auth
@@ -66,7 +66,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('registration.form')}}">Registration</a>
                         </li>
-                    @endauth-->
+                    @endauth
                 </ul>
             </div>
         </nav>

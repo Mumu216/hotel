@@ -51,7 +51,7 @@ class UserController extends Controller
         $loginData=$request->only('email','password');
         // dd($loginData);
         if(Auth::attempt($loginData)){
-            return redirect()->route('index')->with('success','User Login Success.');
+            return redirect()->route('website')->with('success','User Login Success.');
         }
         return back()->withErrors([
             'email'=>'Invalid Credentials.',

@@ -13,7 +13,13 @@ class CreateFacilitiesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('facilities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('text');
+            $table->text('status');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateFacilitiesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('facilities');
     }
 }

@@ -1,12 +1,11 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse ">
-      <div class="position-sticky pt-3">
+      <div class="position-sticky pt-3" style="background-color: rgb(0, 0, 0);height:100vh">
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ route('dashboard')}}">
               <span data-feather="home"></span>
               Dashboard
             </a>
-
 
           </li>
           <li class="nav-item">
@@ -16,8 +15,6 @@
             </a>
           </li>
 
-
-          
           <li class="nav-item">
             <a class="nav-link" href="{{ route('users')}}">
               <span data-feather="file"></span>
@@ -80,9 +77,9 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{route('facilities.list')}}">
+            <a class="nav-link" href="{{route('facility.list')}}">
               <span data-feather="file"></span>
-              Facilities 
+              Facility
             </a>
           </li>
 
@@ -95,8 +92,13 @@
           </li>
 
 
-         
-         
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('booking.report')}}">
+              <span data-feather="file"></span>
+              Report
+            </a>
+          </li>
+
             
         </ul>
       </div>

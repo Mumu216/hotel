@@ -48,6 +48,9 @@ Table of Content:
 
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+*{
+  list-style-type: none;
+}
 .list_style {
   list-style: none;
   margin: 0px;
@@ -3598,7 +3601,9 @@ h1, h2, h3, h4, h5, h6 {
 .footer-bottom .footer-social a:hover {
   color: #f3c300;
 }
-
+ul li{
+  list-style-type: none !important;
+}
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */

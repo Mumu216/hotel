@@ -47,37 +47,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="book_tabel_item">
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Adult">Adult</option>
-                                            <option value="1">Old</option>
-                                            <option value="2">Younger</option>
-                                            <option value="3">Potato</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Child">Child</option>
-                                            <option value="1">Child</option>
-                                            <option value="2">Baby</option>
-                                            <option value="3">Child</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="book_tabel_item">
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Child">Number of Rooms</option>
-                                            <option value="1">Room 01</option>
-                                            <option value="2">Room 02</option>
-                                            <option value="3">Room 03</option>
-                                        </select>
-                                    </div>
-                                    <a class="book_now_btn button_hover" href="#">Book Now</a>
+                  
+
+
+
+                          
+                                    <a class="book_now_btn button_hover" href="{{route('rooms.under.category','all')}}">Book Now</a>
                                 </div>
                             </div>
                         </div>

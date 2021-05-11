@@ -24,29 +24,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>
-      <a href="#">View</a>
-      <a href="#">Edit</a>
-      <a href="#">Delete</a>
-      </td>
-      
-    </tr>
+   
     </thead>
 </tbody>
 
 
-  @foreach($orders as $data)
+@foreach($orders as $key=>$data)
+  
 
   <tr>
 
-      <th scope='row'> {{$data->sl}}</th>
+  <th scope="row">{{$key+1}}</th>
+      
       <td> {{$data->name}}</td>
       <td> {{$data->address}}</td>
       <td>{{$data->email}}</td>

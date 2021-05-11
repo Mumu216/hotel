@@ -12,11 +12,11 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RoomTypeController;
 use App\Http\Controllers\Admin\ReceptionistController;
 use App\Http\Controllers\Admin\RoomServiceController;
-use App\Http\Controllers\Admin\FacilitiesController;
+use App\Http\Controllers\Admin\FacilityController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\RoomController as FrontendRoomController;
 use App\Http\Controllers\Frontend\Bookingcontroller as FrontendBookingController;
-
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
  
@@ -175,7 +175,13 @@ Route::post('/roomservice/store',[RoomServiceController::class,'store'])->name('
 
 // facilities routes
 
-Route::get('/facilities/list',[FacilitiesController::class,'list'])->name('facilities.list');
+Route::get('/facility/list',[FacilityController::class,'list'])->name('facility.list');
+
+
+
+//report routes
+
+Route::get('/report',[ReportController::class,'bookingReport'])->name('booking.report');
 
 
 

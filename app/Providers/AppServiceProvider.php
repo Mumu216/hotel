@@ -27,8 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
 
+        //when we run migrate.. there are not table like categories and room .
+        if(\Schema::hasTable('categories') && \Schema::hasTable('rooms'))
+        {
+
+    
         $categories=Category::all();
         $rooms=Room::all();
 
@@ -36,6 +40,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('rooms', $rooms);
 
 
-
+    }
     }
 }

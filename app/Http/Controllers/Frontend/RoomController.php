@@ -11,16 +11,15 @@ class RoomController extends Controller
     public function ShowRoom($id)
     {
         //dd($id);
-        $room=Room::find($id);
-        //dd($room);
-        return view('frontend.layouts.single-room');
+        $room=Room::with('roomCategory')->find($id);
+        return view('frontend.layouts.single-room',compact('room'));
     }
 
 
     public function RoomsUnderCategory($cid)
     {   
 
-       // dd($cid);
+      
        //get all rooms from room table where category id= $cid
        if($cid=='all')
        {
