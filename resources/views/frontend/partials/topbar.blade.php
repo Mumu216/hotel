@@ -1,7 +1,7 @@
 <!--================Header Area =================-->
 <header class="header_area" style="position: sticky ">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar justify-content-end navbar-expand-lg navbar-light">
             <!-- Brand and toggle get grouped for better mobile display -->
           <!-- <a class="navbar-brand logo_h" href="index.html"><img src="image/Logo.png" alt=""></a>-->
          <!--   <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -34,14 +34,15 @@
 
                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
 
-
+                    
+                   <div class="mr-auto" style="font-size: 24px">Royal Hotel</div>
                   <div class="dropdown show">
                       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          Select Category
                       </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a href="{{route('rooms.under.category','all')}}">All Product</a>
+                          <a href="{{route('rooms.under.category','all')}}">All Room</a>
                        @foreach($categories as $category)
                            <a class="dropdown-item" href="{{route('rooms.under.category',$category->id)}}">{{$category->category_name}}</a>
                       @endforeach
@@ -49,12 +50,21 @@
                  </div>
 
 
+                 <li class="nav-item">
+                    <span class="nav-link">||</span>
+                </li>
+
+
+                  <a href=""><span class="badge badge-success">Cart(0)</span></a>
+
+
                     <li class="nav-item">
                         <span class="nav-link">||</span>
                     </li>
                     @auth
                         <li class="nav-item">
-                            <span class="nav-link text-success ">{{auth()->user()->name}}</span>
+                            <a href="{{route('profile', Auth::user()->id)}}">
+                            <span class="nav-link text-success ">{{auth()->user()->name}}</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('logout')}}">Logout</a>

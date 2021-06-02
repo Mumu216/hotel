@@ -36,4 +36,46 @@ class CategoryController extends Controller
 
       return redirect()->route('category.list');
     }
+
+
+    public function DeleteCategory($id)
+    {
+
+       //dd($id);
+        $category=Category::find($id);
+        //dd($room);
+        $category->delete();
+    
+        return redirect()->back()->with('success','Category deleted Successfully');
+    }
+
+    public function editCategory($id)
+    { 
+      $categories=Category::find($id);
+     // $categories=Category::all();
+     // dd($id);
+      return view('backend.layouts.category.edit',compact('categories'));
+    }
+
+
+    public function updateCategory(Request $request,$id )
+    {
+       
+      //dd($id);
+      //dd($request->all());
+      Category::find($id)->update([
+
+       'category_name'=>$request->category_name,
+       'status'=>$request->status,
+       'description'=>$request->description,
+       'image'=>$request->image,
+
+       
+
+
+      ]);
+
+      return redirect()->route('category.list')->with('success','Updated Successfully');
+
+    }
 }

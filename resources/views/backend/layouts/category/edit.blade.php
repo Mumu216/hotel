@@ -4,9 +4,11 @@
 @section('content')
 
 
-<form action="{{ route('category.store')}}"  method="post">
+<form action="{{ route('category.update',$categories->id)}}"   method="post">
   <div class="col-md-6">
     @csrf
+    @method('PUT')
+
      
 
 

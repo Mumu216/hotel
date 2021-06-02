@@ -16,7 +16,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('users')}}">
+            <a class="nav-link" href="{{ route('admin.users')}}">
               <span data-feather="file"></span>
               User
             </a>

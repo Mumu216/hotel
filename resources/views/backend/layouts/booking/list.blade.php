@@ -23,10 +23,12 @@
        <th scope="col">User</th>
        <th scope="col">From Date</th>
        <th scope="col">To Date</th>
+       <th scope="col">Check In</th>
+       <th scope="col">Check Out</th>
        <th scope="col">Rate</th>
        <th scope="col">Total</th>
        <th scope="col">Status</th>
-       <th scope="col">Action</th>
+       <th scope="col" class="text-center">Action</th>
 
 
 
@@ -43,10 +45,24 @@
        <td>{{$data->user->name}}</td>
        <td>{{date("Y-M-d",strtotime($data->booking_from))}} </td>
        <td>{{date("Y-M-d",strtotime($data->booking_to))}} </td>
+       <td>{{$data->check_in}}</td>
+       <td>{{$data->check_out}}</td>
        <td>{{$data->rate}}</td>
        <td>{{$data->total}}</td>
-       <td>dghdjdjkd</td>
-       <td> <a href="">View</a></td>
+       <td>{{$data->status}}</td>
+
+
+       <td> 
+
+        <a href="{{route('show.check-in',$data->id)}}">check In</a>
+  
+
+      </td>
+
+      <td>
+
+        <a href="{{route('show.check-out',$data->id)}}">check Out</a>
+      </td>
 
 
 

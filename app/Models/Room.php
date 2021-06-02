@@ -18,4 +18,9 @@ class Room extends Model
         return $this->belongsTo(Category::class,'category_id', 'id');
     }
 
+    public function booking()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
 }

@@ -19,9 +19,11 @@ class CreateBookingsTable extends Migration
             $table->integer('user_id');
             $table->dateTime('booking_from');
             $table->dateTime('booking_to');
-            $table->text('details')->nullable;
-            $table->integer('rate')->nullable;
-            $table->integer('total')->nullable;
+            $table->dateTime('check_in')->nullable();
+            $table->dateTime('check_out')->nullable();
+            $table->text('details')->nullable();
+            $table->integer('rate')->nullable();
+            $table->integer('total')->nullable();
             
             $table->timestamps();
         });

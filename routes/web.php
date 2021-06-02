@@ -54,6 +54,8 @@ Route::post('/dologin',[UserController::class,'doLogin'])->name('login');
 
 Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
+Route::get('/profile',[HomeController::class,'profile'])->name('profile');
+
 //single page view
 
 Route::get('/show/room/{room_id}',[FrontendRoomController::class,'ShowRoom'])->name('room.show');
@@ -64,6 +66,9 @@ Route::get('/rooms/under/category/{category_id}',[FrontendRoomController::class,
 // Booking route
 Route::get('/book/room/{id}',[FrontendBookingController::class,'BookRoom'])->name('book.room');
 Route::post('/booking',[FrontendBookingController::class,'Booking'])->name('room.booking');
+
+//  room search
+Route::get('/room/search',[HomeController::class,'RoomSearch'])->name('search');
 
 
 
@@ -99,11 +104,12 @@ Route::get('logout',[AdminUserController::class,'logout'])->name('admin.logout')
 
 
 
+//user routes
+Route::get('/user/list',[AdminUserController::class,'userlist'])->name('admin.users');
+//Route::get('/user/create',[AdminUserController::class,'createForm'])->name('admin.users');//
 
-//Route::get('/admin/admin',[AdminController::class,'admin'])->name('admin');
-Route::get('/admin/users',[AdminController::class,'users'])->name('users');
-Route::get('/admin/room',[AdminController::class,'room'])->name('room');
-Route::get('/admin/facilities',[AdminController::class,'facilities'])->name('facilities');
+
+
 //Route::get('/admin/room service',[AdminController::class,'room service'])->name('room service');
 
 
@@ -122,6 +128,9 @@ Route::post('/admin/create',[Ordercontroller::class,'create'])->name('order.crea
 //Route::get('/admin/booking', [BookingController::class,'bookinglist'])->name('booking.bookinglist');
 //Route::post('/admin/booking/create',[BookingController::class,'create'])->name('booking.create');
 Route::get('/show/booking',[BookingController::class,'ShowBooking'])->name('show.booking');
+Route::get('/show/check-in/{id}',[BookingController::class,'CheckIn'])->name('show.check-in');
+Route::get('/show/check-out/{id}',[BookingController::class,'CheckOut'])->name('show.check-out');
+
 
 // room routes
 Route::group(['prefix'=>'room'],function()
@@ -154,6 +163,12 @@ Route::post('/payment/store',[PaymentController::class,'store'])->name('payment.
 Route::get('/category/list',[CategoryController::class,'list'])->name('category.list');
 Route::get('/category/createform',[CategoryController::class,'createform'])->name('category.createform');
 Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
+Route::get('/category/delete/{id}',[CategoryController::class,'DeleteCategory'])->name('category.delete');
+Route::get('/category/edit/{id}',[CategoryController::class,'editCategory'])->name('category.edit');
+Route::put('/category/update/{id}',[CategoryController::class,'updateCategory'])->name('category.update');
+
+
+
 
 // room type routes
 
@@ -176,6 +191,8 @@ Route::post('/roomservice/store',[RoomServiceController::class,'store'])->name('
 // facilities routes
 
 Route::get('/facility/list',[FacilityController::class,'list'])->name('facility.list');
+Route::get('/facility/createform',[FacilityController::class,'createForm'])->name('facility.createform');
+Route::post('/facility/store',[FacilityController::class,'store'])->name('facility.store');
 
 
 

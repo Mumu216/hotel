@@ -6,6 +6,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Admin;
+use App\Models\Room;
+use App\Models\Booking;
+use App\Models\User;
+
+
 
 
 class AdminController extends Controller
@@ -13,7 +18,12 @@ class AdminController extends Controller
    public function dashboard(){
        //dd("ök");
        $title = "Admin Dashboard";
-       return view('backend.layouts.dashboard', compact('title'));
+       $room=Room::all()->count();
+       $booking=Booking::all()->count();
+       $user=User::all()->count();
+       
+       
+       return view('backend.layouts.dashboard', compact('title','room','booking','user'));
    }
 
    

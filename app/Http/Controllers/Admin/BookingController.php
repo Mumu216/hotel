@@ -40,6 +40,29 @@ class BookingController extends Controller
        return view('backend.layouts.booking.list',compact('all_Booking'));
     }
 
+
+    public function CheckIn($id)
+    {
+        $booking = Booking::find($id);
+
+        $booking->update([
+          'check_in'=>now()
+        ]);
+        return redirect()->back();
+    }
+
+    public function CheckOut($id)
+
+    { 
+      $booking = Booking::find($id);
+
+      $booking->update([
+        'check_out'=>now()
+      ]);
+      return redirect()->back();
+
+    }
+
 }
      
     

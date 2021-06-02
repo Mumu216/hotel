@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -50,6 +51,22 @@ class UserController extends Controller
        Auth::logout();
        return redirect()->route('admin.login')->with('success','Logout Successfull.');
     }
+
+
+
+    public function userlist()
+    
+
+        {
+            $title= 'User List';
+            $user_list = User::all();
+            return view('backend.layouts.user.list',compact('title','user_list'));
+        }
+
+
+        
+  
+    
 
 
 

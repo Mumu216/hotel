@@ -17,6 +17,8 @@
        <th scope="col">Payment Amount</th>
        <th scope="col">Due</th>
        <th scope="col">Method</th>
+       <th scope="col">Transaction Id</th>
+
 
        </tr>
        </thead>
@@ -27,11 +29,13 @@
    @foreach($payments as $key=> $data)
     <tr>
        <th scope="row">{{$key+1}}</th>
-       <td>{{$data->payment_id}}</td>
-       <td>{{$data->Booking_id}}</td>
+       <td>{{$data->id}}</td>
+       <td>{{$data->booking_id}}</td>
        <td>{{$data->payment_amount}}</td>
        <td>{{$data->due}}</td>
-       <td>{{$data->method}}</td>
+       <td>{{$data->payment_method}}</td>
+       <td>{{$data->transaction_id}}</td>
+
 
        </tr>
        @endforeach

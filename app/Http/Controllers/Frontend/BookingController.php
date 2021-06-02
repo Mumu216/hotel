@@ -9,6 +9,7 @@ use App\Models\Room;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 
 
@@ -31,8 +32,13 @@ class BookingController extends Controller
         //dd(round($dayscalculate/(60*60*24)));
  // need to check the room is available to book or not
 
-     $fromDate=date("Y-m-d",strtotime($request->from_date));
-     $toDate=date("Y-m-d",strtotime($request->to_date));
+     $fromDate=Carbon::parse(date("Y-m-d",strtotime($request->from_date)));
+     $toDate=Carbon::parse(date("Y-m-d",strtotime($request->to_date)));
+
+    //  $expaired_days = date_diff($fromDate,$toDate);
+    
+    //  $expaired_date =Carbon::parse(date("Y-m-d",strtotime($expaired_days)));
+    //  dd( $expaired_date);
 
        $checkBook=Booking::where('room_id',$request->room_id)
                         ->whereBetween('booking_from',[$fromDate,$toDate])
@@ -49,6 +55,8 @@ class BookingController extends Controller
         'user_id'=>auth()->user()->id,
         'booking_from'=>$request->from_date,
         'booking_to'=>$request->to_date,
+        'check_in'=>$request->check_in,
+        'check_out'=>$request->check_out,
         'details'=>$request->details,
         'rate'=>$room->price,
         'total'=>$room->price*$dayscalculate,
