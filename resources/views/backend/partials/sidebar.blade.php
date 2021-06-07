@@ -7,13 +7,16 @@
               Dashboard
             </a>
 
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.login')}}">
-              <span data-feather="file"></span>
-              Admin
-            </a>
-          </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.login')}}">
+                <span data-feather="file"></span>
+                Admin
+              </a>
+            </li>
+
+         
 
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.users')}}">
@@ -30,12 +33,7 @@
             </a>
           </li>
 
-             <li class="nav-item">
-            <a class="nav-link" href="{{ route('order.orderlist')}}">
-              <span data-feather="file"></span>
-              Order
-            </a>
-          </li>
+            
 
           
             

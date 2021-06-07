@@ -40,7 +40,7 @@
                     <input required name="to_date" type="date" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Details:</label>
+                    <label for="">status:</label>
                     <textarea  name="details" id="" class="form-control"></textarea>
                 </div>
 

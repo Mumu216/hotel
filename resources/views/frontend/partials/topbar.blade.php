@@ -38,7 +38,7 @@
                    <div class="mr-auto" style="font-size: 24px">Royal Hotel</div>
                   <div class="dropdown show">
                       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Select Category
+                         View Category
                       </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -63,8 +63,14 @@
                     </li>
                     @auth
                         <li class="nav-item">
-                            <a href="{{route('profile', Auth::user()->id)}}">
-                            <span class="nav-link text-success ">{{auth()->user()->name}}</span></a>
+                             <span class="nav-link text-success ">{{auth()->user()->name}}</span>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('profile')}}">
+                             <span class="nav-link text-success ">{{__('Profile')}}</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('payment')}}">Payment</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('logout')}}">Logout</a>

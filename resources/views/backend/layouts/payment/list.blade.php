@@ -18,6 +18,7 @@
        <th scope="col">Due</th>
        <th scope="col">Method</th>
        <th scope="col">Transaction Id</th>
+       <th scope="col">Action</th>
 
 
        </tr>
@@ -35,6 +36,14 @@
        <td>{{$data->due}}</td>
        <td>{{$data->payment_method}}</td>
        <td>{{$data->transaction_id}}</td>
+       
+       <td>
+         
+         <a href="{{route('payConfirm', $data->id)}}" class="btn btn-success">Confirm</a>
+         <a href="{{route('cancelApproved', $data->id)}}" class="btn btn-danger">Cancel</a>
+       </td>
+
+      
 
 
        </tr>

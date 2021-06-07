@@ -32,11 +32,7 @@
                     <!-- Detalles especificos del producto -->
                    
                     <div class="section" style="padding-bottom:5px;">
-                        <h4 class="title-attr">Room Category</h4>                    
-                        <div>
-                            <div class="attr2"><h5>{{$room->category_name}}</h5></div>
-                       
-                        </div>
+                        <h4 class="title-attr">Room Category: {{$room->roomCategory->category_name}}</h4>       
                     </div>   
                                 
         

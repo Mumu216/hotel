@@ -11,10 +11,10 @@
 
       <th scope="col">#</th>
       <!--<th scope="col">ID</th>-->
-      <th scope="col">Name</th>
+      <th scope="col"> Category Name</th>
+      <th scope="col">Category Number</th>
       <th scope="col">Status</th>
       <th scope="col">Description</th>
-      <th scope="col">Image</th>
       <th scope="col">Action</th>
 
 
@@ -26,9 +26,10 @@
       <tr>
           <th scope="row">{{$key+1}}</th>
           <td>{{$data->category_name}}</td>
+          <td>{{$data->category_number}}</td>
           <td>{{$data->status}}</td>
           <td>{{$data->description}}</td>
-          <td>{{$data->image}}</td>
+          
 
 
           <td>

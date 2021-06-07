@@ -57,7 +57,7 @@ class BookingController extends Controller
         'booking_to'=>$request->to_date,
         'check_in'=>$request->check_in,
         'check_out'=>$request->check_out,
-        'details'=>$request->details,
+        'status'=>$request->status,
         'rate'=>$room->price,
         'total'=>$room->price*$dayscalculate,
 

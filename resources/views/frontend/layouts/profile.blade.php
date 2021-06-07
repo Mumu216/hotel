@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
-                                class="rounded-circle" width="150">
+                            <img src="{{ asset('/uploads/user/'.auth()->user()->image) }}" alt="Admin"
+                                class="rounded-circle" style="width: 150px; height:150px; line-height:150px">
                             <div class="mt-3">
-                                <h4>{{ $user->name }}</h4>
+
                             </div>
                             {{-- @dd($user) --}}
                         </div>
@@ -30,7 +30,7 @@
                                 <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Kenneth Valdez
+                                {{ auth()->user()->name}}
                             </div>
                         </div>
                         <hr>
@@ -40,7 +40,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                fip@jukmuh.al
+                                {{ auth()->user()->email}}
                             </div>
                         </div>
                         <hr>
@@ -49,16 +49,7 @@
                                 <h6 class="mb-0">Phone</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                (239) 816-9029
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Mobile</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                (320) 380-4539
+                                {{ auth()->user()->phone_number}}
                             </div>
                         </div>
                         <hr>
@@ -67,24 +58,43 @@
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <a class="btn btn-info " target="__blank"
-                                    href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                                {{ auth()->user()->address}}
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
 
+
+        <div class="row">
+            <h3>Your Booking List</h3>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Room Name</th>
+                    <th scope="col">From Date</th>
+                    <th scope="col">to Date</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach ($booking as $data)
+                <tr>
+                    <td>{{ $loop->index + 1 }}</td>
+                    <td>{{ $data->room->name }}</td>
+                    <td>{{ $data->booking_from }}</td>
+                    <td>{{ $data->booking_to }}</td>
+                    <td>{{ $data->rate }}</td>
+                    <td>{{ $data->total }}</td>
+                  </tr>
+                @endforeach
+                  
+                </tbody>
+              </table>
+        </div>
     </div>
 </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Booking;
+use App\Models\Payment;
 use App\Models\User;
 use App\Models\Category;
 use Carbon\Carbon;
@@ -46,9 +47,36 @@ class HomeController extends Controller
    }
 
 
-   public function profile(){
-    return view('frontend.layouts.user-profile', [
-      'user' => User::find(1)
-    ]);
+   public function profile()
+   {
+     
+      $booking=Booking::where('user_id',auth()->user()->id)->get();
+      //dd($booking);
+      return view('frontend.layouts.profile', compact('booking'));
+      
+    
    }
+
+   public function payment(){
+     return view('frontend.layouts.payment');
+   }
+
+   public function paymentPay(Request $request)
+    {
+       Payment::create([       
+        'id'=>$request->id,
+        'booking_id'=>$request->booking_id,
+        'payment_amount'=>$request->payment_amount,
+        'due'=>$request->due,
+        'payment_method'=>$request->payment_method,
+        'transaction_id'=>$request->transaction_id
+       ]);
+
+     return back()->with('message', 'Successfully Payment');
+    }
+
+
+    
+   
+
 }

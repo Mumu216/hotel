@@ -9,6 +9,10 @@ use App\Admin;
 use App\Models\Room;
 use App\Models\Booking;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Payment;
+
+
 
 
 
@@ -21,9 +25,11 @@ class AdminController extends Controller
        $room=Room::all()->count();
        $booking=Booking::all()->count();
        $user=User::all()->count();
+       $category=Category::all()->count();
+       $payment=Payment::all()->count();
        
        
-       return view('backend.layouts.dashboard', compact('title','room','booking','user'));
+       return view('backend.layouts.dashboard', compact('title','room','booking','user','category','payment'));
    }
 
    

@@ -63,6 +63,33 @@ class BookingController extends Controller
 
     }
 
+    public function bookingConfirm($id)
+    {
+        $booking = Booking::find($id);
+
+        $booking->update([
+
+                        'confirm'=>' Booking Confirm',
+        ]);
+
+        return redirect()-> back();
+
+    }
+
+    public function bookingCancel($id)
+    {
+        $booking = Booking::find($id);
+
+        $booking->update([
+
+                        'cancel'=>'Booking Cancel Approved',
+        ]);
+
+        return redirect()-> back();
+
+
+}
+
 }
      
     

@@ -29,6 +29,10 @@
        <th scope="col">Total</th>
        <th scope="col">Status</th>
        <th scope="col" class="text-center">Action</th>
+       <th scope="col" class="text-center">Action</th>
+       <th scope="col" class="text-center">Action</th>
+
+
 
 
 
@@ -56,12 +60,19 @@
 
         <a href="{{route('show.check-in',$data->id)}}">check In</a>
   
+    </td>
 
+      <td>
+      
+        <a href="{{route('show.check-out',$data->id)}}">check Out</a>
       </td>
 
       <td>
+        <a href="{{route('booking.confirm', $data->id)}}" class="btn btn-success">Confirm</a>
+      </td>
 
-        <a href="{{route('show.check-out',$data->id)}}">check Out</a>
+      <td>
+        <a href="{{route('booking.cancel', $data->id)}}" class="btn btn-danger">Cancel</a>
       </td>
 
 

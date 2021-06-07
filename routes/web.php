@@ -56,6 +56,15 @@ Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
 Route::get('/profile',[HomeController::class,'profile'])->name('profile');
 
+// payment
+Route::get('/payment',[HomeController::class,'payment'])->name('payment');
+Route::post('/payment/store',[HomeController::class,'paymentPay'])->name('payment.pay');
+Route::get('/cancel',[HomeController::class,'cancel'])->name('cancel');
+Route::post('/cancel/store',[HomeController::class,'cancelPay'])->name('cancel.pay');
+
+
+
+
 //single page view
 
 Route::get('/show/room/{room_id}',[FrontendRoomController::class,'ShowRoom'])->name('room.show');
@@ -78,6 +87,16 @@ Route::group(['prefix'=>'admin'],function(){
 
 Route::get('login',[AdminUserController::class,'loginForm'])->name('admin.login');
 Route::post('do-login',[AdminUserController::class,'dologin'])->name('admin.dologin');
+
+// forget password routes here
+
+Route::get('/forget-password',[AdminUserController::class,'forgetPassword'])->name('forget-password');
+Route::post('/forget-password-link',[AdminUserController::class,'forgetPasswordLink'])->name('forget-password.link');
+Route::get('/forget-password-link-click/{token}/{email}',[AdminUserController::class,'passwordReset'])->name('password.reset');
+Route::post('/reset-password',[AdminUserController::class,'resetPassword'])->name('password.reset.post');
+
+
+
 
 Route::get('/',function(){
     $title='Dashboard';
@@ -112,7 +131,14 @@ Route::get('/user/list',[AdminUserController::class,'userlist'])->name('admin.us
 
 //Route::get('/admin/room service',[AdminController::class,'room service'])->name('room service');
 
+//payment confirm/cancel
+Route::get('/payment/confirm/{id}',[paymentController::class,'payConfirm'])->name('payConfirm');
+Route::get('/payment/cancel/{id}',[paymentController::class,'cancelApproved'])->name('cancelApproved');
 
+//booking confirm/cancel
+
+Route::get('/booking/confirm/{id}',[BookingController::class,'bookingConfirm'])->name('booking.confirm');
+Route::get('/booking/cancel/{id}',[BookingController::class,'bookingCancel'])->name('booking.cancel');
 
 
 

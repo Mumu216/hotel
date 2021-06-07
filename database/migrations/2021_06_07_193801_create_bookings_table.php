@@ -21,10 +21,12 @@ class CreateBookingsTable extends Migration
             $table->dateTime('booking_to');
             $table->dateTime('check_in')->nullable();
             $table->dateTime('check_out')->nullable();
-            $table->text('details')->nullable();
+            $table->text('status')->nullable();
             $table->integer('rate')->nullable();
             $table->integer('total')->nullable();
-            
+            $table->text('confirm')->default('Pending');
+            $table->text('cancel')->default('Pending');
+
             $table->timestamps();
         });
     }

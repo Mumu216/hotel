@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Room;
 
 class CategoryController extends Controller
 {
@@ -28,9 +29,10 @@ class CategoryController extends Controller
       Category::create([
 
        'category_name'=>$request->category_name,
+       'category_number'=>$request->category_number,
        'status'=>$request->status,
        'description'=>$request->description,
-       'image'=>$request->image,
+       
 
       ]);
 
@@ -52,9 +54,10 @@ class CategoryController extends Controller
     public function editCategory($id)
     { 
       $categories=Category::find($id);
+      $room = Room::all();
      // $categories=Category::all();
      // dd($id);
-      return view('backend.layouts.category.edit',compact('categories'));
+      return view('backend.layouts.category.edit',compact('categories', 'room'));
     }
 
 
@@ -66,13 +69,9 @@ class CategoryController extends Controller
       Category::find($id)->update([
 
        'category_name'=>$request->category_name,
+       'category_number'=>$request->category_number,
        'status'=>$request->status,
-       'description'=>$request->description,
-       'image'=>$request->image,
-
-       
-
-
+       'description'=>$request->description
       ]);
 
       return redirect()->route('category.list')->with('success','Updated Successfully');

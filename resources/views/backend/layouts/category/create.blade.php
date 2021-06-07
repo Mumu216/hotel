@@ -16,20 +16,24 @@
        </div>
 
        <div class-"form-group">
+        <label for="number">Enter Category Number</label>
+        <input id="number" type="number" name="category_number"  placeholder="Enter Category Number"  class="form-control">
+       </div>
+
+       <div class-"form-group">
         <label for="status">Enter Category Status</label>
         <input id="status" type="text" name="status"  placeholder="Enter Category Status"  class="form-control">
        </div>
+
+       
+      
 
        <div class-"form-group">
         <label for="description">Enter Category Description</label>
         <input id="status" type="text" name="description"  placeholder="Enter Category Description"  class="form-control">
        </div>
 
-       <div class-"form-group">
-        <label for="image">Enter Category Image</label>
-        <input id="image" type="text" name="image"  placeholder="Enter Category Image"  class="form-control">
-       </div>
-
+      
 
        
 

@@ -18,21 +18,33 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
+        // die();
         $request->validate([
         'name'=>'required',
         'email'=>'required|email|unique:users',
         'password'=>'required|min:5'
         ]);
 
+        $filename = '';          
+            if($request->hasFile('image')){
+                $file = $request->file('image');
+                if ($file->isValid()) {
+                    $filename = date('Ymdhms').'.'.$file->getClientOriginalExtension();
+                    $file->storeAs('user', $filename);
+                }
+            }
+            
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>bcrypt($request->password)
-        ]);
-
-      return redirect()->route('login.form')->with('success','User Registration Successful.');
-}
+            'password'=>bcrypt($request->password),
+            'phone_number'=>$request->phone_number,
+            'address' => $request->address,
+            'image'=>$filename,
+        ]); 
+        return redirect()->route('login.form')->with('success','User Registration Successful.');
+    }
 
 
         public function loginForm()

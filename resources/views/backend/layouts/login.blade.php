@@ -87,7 +87,13 @@
           <input class="form-control" type="password" id="password"  name="password" placeholder="Enter User Password">
      </div>
 
-     <button type="Submit"  class="btn btn-success"> Login</button>
+     <p>
+      
+      <a href="{{route('forget-password')}}">Forget Password?</a>
+     
+     </p>
+
+     <button type="Submit"  class="btn btn-success"> Submit</button>
 
      </form>
        

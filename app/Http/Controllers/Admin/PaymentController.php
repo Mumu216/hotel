@@ -42,4 +42,32 @@ class PaymentController extends Controller
 
      return redirect()-> route('payment.list');
     }
+
+    public function payConfirm($id)
+    {
+        $payment = Payment::find($id);
+
+        $payment->update([
+
+                        'status'=>'Confirm',
+        ]);
+
+        return redirect()-> back();
+
+    }
+
+    public function cancelApproved($id)
+    {
+        $payment = Payment::find($id);
+
+        $payment->update([
+
+                        'cancel'=>'Cancel Approved',
+        ]);
+
+        return redirect()-> back();
+
+
+}
+
 }
