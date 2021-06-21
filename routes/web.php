@@ -62,6 +62,29 @@ Route::post('/payment/store',[HomeController::class,'paymentPay'])->name('paymen
 Route::get('/cancel',[HomeController::class,'cancel'])->name('cancel');
 Route::post('/cancel/store',[HomeController::class,'cancelPay'])->name('cancel.pay');
 
+//receptionist
+
+Route::get('/receptionist',[HomeController::class,'receptionist'])->name('receptionist');
+Route::post('/receptionist/store',[HomeController::class,'storeData'])->name('receptionist.data');
+
+//room service
+
+Route::get('/roomservice',[HomeController::class,'roomservice'])->name('roomservice');
+Route::post('/roomservice/store',[HomeController::class,'storeInfo'])->name('roomservice.info');
+
+//facility
+
+Route::get('/facility',[HomeController::class,'facility'])->name('facility');
+Route::post('/facility',[HomeController::class,'Info'])->name('facility.info');
+
+
+
+
+
+
+
+
+
 
 
 
@@ -171,6 +194,11 @@ Route::get('/room/delete/{id}',[RoomController::class,'DeleteRoom'])->name('room
 Route::get('/room/edit/{id}',[RoomController::class,'editRoom'])->name('room.edit');
 Route::put('/room/update/{id}',[RoomController::class,'updateRoom'])->name('room.update');
 
+//single page show
+
+Route::get('/show/room/{room_id}',[RoomController::class,'ShowRoom'])->name('room.shows');
+
+
 
 });
 
@@ -192,6 +220,7 @@ Route::post('/category/store',[CategoryController::class,'store'])->name('catego
 Route::get('/category/delete/{id}',[CategoryController::class,'DeleteCategory'])->name('category.delete');
 Route::get('/category/edit/{id}',[CategoryController::class,'editCategory'])->name('category.edit');
 Route::put('/category/update/{id}',[CategoryController::class,'updateCategory'])->name('category.update');
+Route::get('/category/view/{id}',[CategoryController::class,'viewCategory'])->name('category.view');
 
 
 
@@ -201,6 +230,12 @@ Route::put('/category/update/{id}',[CategoryController::class,'updateCategory'])
 Route::get('/roomtype/list',[RoomTypeController::class,'list'])->name('roomtype.list');
 Route::get('/roomtype/createform',[RoomTypeController::class,'createform'])->name('roomtype.createform');
 Route::post('/roomtype/store',[RoomTypeController::class,'store'])->name('roomtype.store');
+Route::get('/roomtype/delete/{id}',[RoomTypeController::class,'DeleteRoomtype'])->name('roomtype.delete');
+Route::get('/roomtype/edit/{id}',[RoomTypeController::class,'editRoomtype'])->name('roomtype.edit');
+Route::put('/roomtype/update/{id}',[RoomTypeController::class,'updateRoomtype'])->name('roomtype.update');
+
+
+
 
 // receptionist routes
 
@@ -219,6 +254,14 @@ Route::post('/roomservice/store',[RoomServiceController::class,'store'])->name('
 Route::get('/facility/list',[FacilityController::class,'list'])->name('facility.list');
 Route::get('/facility/createform',[FacilityController::class,'createForm'])->name('facility.createform');
 Route::post('/facility/store',[FacilityController::class,'store'])->name('facility.store');
+Route::get('/facility/delete/{id}',[FacilityController::class,'DeleteFacility'])->name('facility.delete');
+Route::get('/facility/edit/{id}',[FacilityController::class,'editFacility'])->name('facility.edit');
+Route::put('/facility/update/{id}',[FacilityController::class,'updateFacility'])->name('facility.update');
+
+
+
+
+
 
 
 

@@ -17,9 +17,8 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->integer('booking_id');
             $table->double('payment_amount');
-            $table->double('due')->nullable;
-            $table->text('payment_method');
-            $table->integer('transaction_id')->nullable;
+            $table->text('payment_method')->nullable();
+            $table->integer('transaction_id')->nullable();
             $table->text('status')->default('Pending');
             $table->text('cancel')->default('Pending');
             $table->timestamps();

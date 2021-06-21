@@ -9,39 +9,35 @@
   <div class="col-md-6">
     @csrf
       <div class-"form-group">
-        <label for="id">Enter Receptionist Id</label>
-        <input id="id" type="number" name="id"  placeholder="Enter  Receptionist Id "  class="form-control">
-       </div>
-
-
        <div class-"form-group">
-        <label for="receptionist_name">Enter Receptionist Name </label>
-        <input id="receptionist_name" type="text" name="receptionist_name"  placeholder="Enter Receptionist Name "  class="form-control">
+        <label for="name">Enter Receptionist Name </label>
+        <input id="name" type="text" name="name"  placeholder="Enter Receptionist Name "  class="form-control">
        </div>
 
        <div class-"form-group">
         <label for="email">Enter Receptionist Email </label>
-        <input id="email" type="text" name="email"  placeholder="Enter Receptionist Email "  class="form-control">
+        <input id="email" type="email" name="email"  placeholder="Enter Receptionist Email "  class="form-control">
        </div>
 
 
        <div class-"form-group">
         <label for="password">Enter Receptionist Password </label>
-        <input id="password" type="number" name="password"  placeholder="Enter  Receptionist Password "  class="form-control">
+        <input id="password" type="password" name="password"  placeholder="Enter Receptionist Password "  class="form-control">
        </div>
 
-       
+
        <div class-"form-group">
         <label for="phone_number">Enter Receptionist PhoneNumber </label>
-        <input id="phone_numbe" type="number" name="phone_number"  placeholder="Enter Receptionist PhoneNumber  "  class="form-control">
+        <input id="phone_number" type="number" name="phone_number"  placeholder="Enter Receptionist PhoneNumber  "  class="form-control">
        </div>
 
-
-
-
+       <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="role" value="receptionist" id="role">
+        <label class="form-check-label" for="role">
+         Make a Receptionist
+        </label>
+      </div>
        <button   type="submit"  class="btn btn-success">Create</button>
-
-
 
 
 

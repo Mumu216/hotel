@@ -49,29 +49,41 @@
                   </div>
                  </div>
 
-
-                 <li class="nav-item">
-                    <span class="nav-link">||</span>
-                </li>
+            
 
 
-                  <a href=""><span class="badge badge-success">Cart(0)</span></a>
-
-
-                    <li class="nav-item">
+                      <li class="nav-item">
                         <span class="nav-link">||</span>
+                    </li>
+
+            
+                    <li class="nav-item">
+                        <a href="{{route('website')}}">
+                         <span class="nav-link text-success ">{{__('Home')}}</span></a>
                     </li>
                     @auth
                         <li class="nav-item">
-                             <span class="nav-link text-success ">{{auth()->user()->name}}</span>
+                            <a href="{{route('profile')}}"> <span class="nav-link text-success ">{{auth()->user()->name}}</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('profile')}}">
-                             <span class="nav-link text-success ">{{__('Profile')}}</span></a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('payment')}}">Payment</a>
                         </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('receptionist')}}">Receptionist</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('roomservice')}}">Room Service</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('facility')}}">Facility</a>
+
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('logout')}}">Logout</a>
                         </li>

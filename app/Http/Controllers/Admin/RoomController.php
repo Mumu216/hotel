@@ -144,4 +144,12 @@ class RoomController extends Controller
 
           }
 
+          public function ShowRoom($id)
+          {
+              //dd($id);
+              $room=Room::with('roomCategory')->find($id);
+              //dd($room);
+              return view('backend.layouts.room.single-room',compact('room'));
+          }
+
 }

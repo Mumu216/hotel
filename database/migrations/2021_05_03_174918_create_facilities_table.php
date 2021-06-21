@@ -17,7 +17,7 @@ class CreateFacilitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('quality');
-            $table->text('status');
+            $table->string('status');
             $table->timestamps();
         });
     }

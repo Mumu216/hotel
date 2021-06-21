@@ -30,11 +30,10 @@ class PaymentController extends Controller
     {
 
        Payment::create([
-        
+
         'id'=>$request->id,
         'booking_id'=>$request->booking_id,
         'payment_amount'=>$request->payment_amount,
-        'due'=>$request->due,
         'payment_method'=>$request->payment_method,
         'transaction_id'=>$request->transaction_id
 

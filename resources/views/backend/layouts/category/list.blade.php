@@ -35,8 +35,8 @@
           <td>
            
             <a class="btn btn-success" href="{{route('category.edit',$data->id)}}">Edit</a>
+            <a class="btn btn-danger" href="{{route('category.view',$data->id)}}">View</a>
             <a class="btn btn-danger" href="{{route('category.delete',$data->id)}}">Delete</a>
-
             </td>
 
 

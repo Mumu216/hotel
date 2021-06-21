@@ -73,7 +73,9 @@
           <td>{{$data->price}}</td>
           <td>{{$data->roomCategory->category_name}}</td>
            <td>
-           
+
+              <a href="{{route('room.shows',$data->id)}}" class="btn btn-sm btn-warning">View</a>
+               
                <a class="btn btn-success" href="{{route('room.edit',$data->id)}}">Edit</a>
                <a class="btn btn-danger" href="{{route('room.delete',$data->id)}}">Delete</a>
 

@@ -18,6 +18,8 @@
        <th scope="col">Status</th>
        <th scope="col">Quality</th>
        <th scope="col">Phone Number</th>
+       
+
 
 
 
@@ -35,6 +37,8 @@
        <td>{{$data->status}}</td>
        <td>{{$data->quality}}</td>
        <td>{{$data->phone_number}}</td>
+
+      
 
 
        </tr>

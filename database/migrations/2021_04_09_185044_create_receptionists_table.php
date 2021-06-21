@@ -15,10 +15,12 @@ class CreateReceptionistsTable extends Migration
     {
         Schema::create('receptionists', function (Blueprint $table) {
             $table->id();
-            $table->string('receptionist_name');
-            $table->string('email');
-            $table->integer('password');
-            $table->string('phone_number');
+            $table->integer('user_id')->nullable();
+            $table->string('receptionist_id')->nullable();
+            $table->string('receptionist_name')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('password')->nullable();
+            $table->string('phone_number')->nullable();
             $table->timestamps();
         });
     }

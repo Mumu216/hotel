@@ -77,4 +77,14 @@ class CategoryController extends Controller
       return redirect()->route('category.list')->with('success','Updated Successfully');
 
     }
+
+
+public function viewCategory($id){
+  return view('backend.layouts.category.view', [
+      'category_id' =>  Category::find($id)
+ ]);
+}
+
+
+
 }

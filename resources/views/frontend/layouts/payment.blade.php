@@ -35,12 +35,6 @@
                         class="form-control">
                 </div>
 
-
-                <div class-"form-group">
-                    <label for="due">Enter Due</label>
-                    <input id="due" type="number" name="due" placeholder="Enter Due" class="form-control">
-                </div>
-
                 <div class-"form-group">
                     <label for="payment_method">Enter Payment Method</label>
                     <input id="payment_method" type="text" name="payment_method" placeholder="Enter Payment Method"
