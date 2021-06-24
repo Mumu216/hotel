@@ -29,13 +29,13 @@
           <td>{{$data->category_number}}</td>
           <td>{{$data->status}}</td>
           <td>{{$data->description}}</td>
-          
+
 
 
           <td>
-           
+
             <a class="btn btn-success" href="{{route('category.edit',$data->id)}}">Edit</a>
-            <a class="btn btn-danger" href="{{route('category.view',$data->id)}}">View</a>
+            <a class="btn btn-sm btn-warning" href="{{route('category.view',$data->id)}}">View</a>
             <a class="btn btn-danger" href="{{route('category.delete',$data->id)}}">Delete</a>
             </td>
 

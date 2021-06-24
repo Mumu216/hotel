@@ -16,6 +16,7 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->integer('room_id');
+            $table->integer('payment_id')->nullable();
             $table->integer('user_id');
             $table->dateTime('booking_from');
             $table->dateTime('booking_to');
@@ -26,7 +27,7 @@ class CreateBookingsTable extends Migration
             $table->integer('total')->nullable();
             $table->text('confirm')->default('Pending');
             $table->text('cancel')->default('Pending');
-
+            $table->decimal('due_amount')->default(0.00);
             $table->timestamps();
         });
     }

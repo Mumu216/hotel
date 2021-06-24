@@ -9,8 +9,8 @@
 
 
 
-         
-      
+
+
        <div class="container-fluid" style="margin-top:50px">
          <div class="row">
           @foreach($rooms as $data)
@@ -26,10 +26,8 @@
                 </div>
                 <a href="#"><h4 class="sec_h4">{{$data->category_name}}</h4></a>
                 <div class="btn-group">
-                  <a href="#">
-                      <button onclick="cart()" type="button" class="btn btn-sm btn-primary">Add to Cart</button>
-                  </a>
-                  <a href="{{route('room.show',$data->id)}}" class="btn btn-sm btn-warning">View</a>
+
+                  <a href="{{route('room.show',$data->id)}}" class="btn btn-sm btn-primary">View</a>
                 </div>
                 <div class="p-2">
                     <span class="float-left">Price:</span>
@@ -41,7 +39,7 @@
 
 
            </div>
-           
+
          </div>
 
 @endsection

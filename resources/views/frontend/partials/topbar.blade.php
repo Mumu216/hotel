@@ -34,7 +34,7 @@
 
                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
 
-                    
+
                    <div class="mr-auto" style="font-size: 24px">Royal Hotel</div>
                   <div class="dropdown show">
                       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,14 +49,14 @@
                   </div>
                  </div>
 
-            
+
 
 
                       <li class="nav-item">
                         <span class="nav-link">||</span>
                     </li>
 
-            
+
                     <li class="nav-item">
                         <a href="{{route('website')}}">
                          <span class="nav-link text-success ">{{__('Home')}}</span></a>
@@ -65,15 +65,15 @@
                         <li class="nav-item">
                             <a href="{{route('profile')}}"> <span class="nav-link text-success ">{{auth()->user()->name}}</span></a>
                         </li>
-                        
-                        <li class="nav-item">
+
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{route('payment')}}">Payment</a>
-                        </li>
+                        </li> --}}
 
 
-                        <li class="nav-item">
+                       {{-- <li class="nav-item">
                             <a class="nav-link" href="{{route('receptionist')}}">Receptionist</a>
-                        </li>
+                        </li>--}}
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('roomservice')}}">Room Service</a>
@@ -94,6 +94,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('registration.form')}}">Registration</a>
                         </li>
+
+                       
                     @endauth
                 </ul>
             </div>

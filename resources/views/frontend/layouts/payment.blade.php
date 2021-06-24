@@ -18,26 +18,28 @@
             <form action="{{ route('payment.pay')}}" method="post">
                 @csrf
                 <div class-"form-group">
-                    <label for="id">Enter Payment Id</label>
-                    <input id="id" type="number" name="id" placeholder="Enter Payment Id" class="form-control">
-                </div>
-
-
-                <div class-"form-group">
                     <label for="booking_id">Enter Booking Id</label>
-                    <input id="booking_id" type="number" name="booking_id" placeholder="Enter Booking Id"
+                    <input id="booking_id" type="number" name="booking_id" value="{{ $payment->id }}"
+                        class="form-control">
+                </div>
+                {{-- {{ $payment->room }} --}}
+                {{-- {{ App\Models\RoomType::find($payment->room->roomtype_id)->roomtype_name }} --}}
+                <div class-"form-group">
+                    <label for="room_id">Room TYpe</label>
+                    <input id="room_id" type="text" name="room_name" value="{{ App\Models\RoomType::find($payment->room->roomtype_id)->roomtype_name }}"
                         class="form-control">
                 </div>
 
-                <div class-"form-group">
-                    <label for="ampunt">Enter Payment Amount</label>
-                    <input id="amount" type="number" name="payment_amount" placeholder="Enter Payment Amount"
-                        class="form-control">
-                </div>
 
                 <div class-"form-group">
                     <label for="payment_method">Enter Payment Method</label>
                     <input id="payment_method" type="text" name="payment_method" placeholder="Enter Payment Method"
+                        class="form-control">
+                </div>
+
+                <div class-"form-group">
+                    <label for="ampunt">Enter Payment Amount (Pay minimum : {{ $payment->total / 2 }} .TK )</label>
+                    <input id="amount" type="number" min="{{ $payment->total / 2 }}" name="payment_amount" placeholder="Enter Payment Amount"
                         class="form-control">
                 </div>
 

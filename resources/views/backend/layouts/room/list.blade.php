@@ -45,10 +45,11 @@
       <th scope="col">#</th>
       <th scope="col">Image</th>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
       <th scope="col">Number</th>
       <th scope="col">Price</th>
+      <th scope="col">RoomType Name</th>
       <th scope="col">Category</th>
+      <th scope="col">Facility</th>
       <th scope="col">Action</th>
       
       
@@ -68,10 +69,15 @@
           
           </td>
           <td>{{$data->id}}</td>
-          <td>{{$data->name}}</td>
           <td>{{$data->room_number}}</td>
           <td>{{$data->price}}</td>
+          <td>{{$data->roomRoomType->roomtype_name}}</td>
           <td>{{$data->roomCategory->category_name}}</td>
+          <td>{{$data->roomFacility->name}}</td>
+          
+    
+
+
            <td>
 
               <a href="{{route('room.shows',$data->id)}}" class="btn btn-sm btn-warning">View</a>

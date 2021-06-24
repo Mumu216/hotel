@@ -4,8 +4,8 @@
 <!--================Banner Area =================-->
 <section class="banner_area">
     <div class="booking_table d_flex align-items-center">
-        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0"
-            data-background=""></div>
+        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="">
+        </div>
         <div class="container">
             <div class="banner_content text-center">
                 <h6>Away from monotonous life</h6>
@@ -30,16 +30,16 @@
                                     <div class="book_tabel_item">
                                         <div class="form-group">
                                             <div class='input-group'>
-                                                <input type='date' class="form-control"
-                                                    placeholder="Arrival Date" name="from_date" />
-                                                
+                                                <input type='date' class="form-control" placeholder="Arrival Date"
+                                                    name="from_date" />
+
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class='input-group'>
-                                                <input type='date' class="form-control"
-                                                    placeholder="Departure Date" name="to_date"/>
-                                               
+                                                <input type='date' class="form-control" placeholder="Departure Date"
+                                                    name="to_date" />
+
                                             </div>
                                         </div>
                                     </div>
@@ -70,25 +70,30 @@
                     <h4 class="sec_h4">{{$data->category_name}}</h4>
                     <div class="hotel_img">
                         <img width="250px;" height="250px;" src="{{url('/uploads/room/'.$data->image)}}" alt="">
-                       <!-- <a href="#" class="btn btn-success">Book Now</a>
+                        <!-- <a href="#" class="btn btn-success">Book Now</a>
                        <!-- <a href="#" class="btn btn-success">View</a>-->
-
-
                     </div>
-                    <a href="#">
-                        <h4 class="sec_h4">{{$data->category_name}}</h4>
-                        <div class="btn-group">
-                        <button onclick="cart()" type="button" class="btn btn-sm btn-primary">Add to Cart</button>
-                         <a href="{{route('room.show',$data->id)}}" class="btn btn-sm btn-warning">View</a>
 
-                         <a href="{{route('book.room',$data->id)}}" class="btn btn-sm btn-warning">Book Now</a>
-
-                        </div>
-                </a>
+                    <h6 class="p-2">
+                        <span class="float-left">Room Number:</span>
+                        <span class="float-right">{{$data->room_number}}</span>
+                    </h6>
                     <h6 class="p-2">
                         <span class="float-left">Price:</span>
                         <span class="float-right">{{$data->price}}.Tk</span>
                     </h6>
+                    <br>
+                    <a href="#">
+                        <h4 class="sec_h4">{{$data->category_name}}</h4>
+                        <div class="btn-group">
+
+                            <a href="{{route('room.show',$data->id)}}" class="btn btn-sm btn-primary">View</a>
+
+                            <a href="{{route('book.room',$data->id)}}" class="btn btn-sm btn-warning">Book Now</a>
+
+                        </div>
+                    </a>
+
                 </div>
             </div>
             @endforeach
@@ -121,7 +126,7 @@
                     <div class="hotel_img">
                         <img src="image/room4.jpg" alt="">
                         <a href="#" class="btn theme_btn button_hover">Book Now</a>
-        
+
 
                     </div>
                     <a href="#">
@@ -137,8 +142,7 @@
 
 <!--================ Facilities Area  =================-->
 <section class="facilities_area section_gap">
-    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0"
-        data-background="">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">
     </div>
     <div class="container">
         <div class="section_title text-center">

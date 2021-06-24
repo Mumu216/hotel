@@ -28,22 +28,30 @@ class ReceptionistController extends Controller
 
 
     public function store(Request $request){
-        // dd($request->role);
-        // die();
+        $filename = '';
+        if($request->hasFile('image')) {
+            $file= $request->file('image');
+            if ($file->isValid()){
+            $filename =date('Ymdhms').'.'.$file->getClientOriginalExtension();
+            $file->storeAs('user', $filename);
+            }
+        }
 
         $user_id = User::insertGetId([
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=>bcrypt($request->password),
-        'phone_number'=>$request->phone_number,
-        'role'=>$request->role,
-        'created_at' => Carbon::now()
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password'=> bcrypt($request->password),
+            'phone_number' => $request->phone_number,
+            'role'=> $request->role,
+            'image' => $filename,
+            'address' => $request->address,
+            'created_at' => Carbon::now()
        ]);
 
 
        Receptionist::create([
         'user_id' => $user_id,
-        'receptionist_id' => Str::random(8)
+        'receptionist_id' => rand(100000, 999999)
     ]);
 
      return redirect()-> route('receptionist.list');

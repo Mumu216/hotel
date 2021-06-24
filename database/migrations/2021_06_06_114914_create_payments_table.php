@@ -15,8 +15,9 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('booking_id');
-            $table->double('payment_amount');
+            $table->integer('booking_id')->nullable();
+            $table->string('room_id')->nullable();
+            $table->decimal('payment_amount')->default(0.00);
             $table->text('payment_method')->nullable();
             $table->integer('transaction_id')->nullable();
             $table->text('status')->default('Pending');

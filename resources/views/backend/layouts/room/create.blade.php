@@ -12,12 +12,7 @@
         <input id="id" type="number" name="id"  placeholder="Enter Room Id"  class="form-control">
        </div>
 
-       <div class-"form-group">
-        <label for="name">Enter Room Name</label>
-        <input id="name" type="text" name="name"  placeholder="Enter Room Name"  class="form-control">
-       </div>
-
-
+      
        <div class-"form-group">
         <label for="number">Enter Room Number</label>
         <input id="number" type="number" name="room_number"  placeholder="Enter Room Number"  class="form-control">
@@ -29,6 +24,17 @@
        </div>
 
 
+
+       <div class="form-group">
+        <label for="roomtype_id">Select Room Type:</label>
+        <select class="form-control" name="roomtype_id" id="roomtype_id">
+        @foreach($roomtypes as $data)
+            <option value="{{$data->id}}">{{$data->roomtype_name}}</option>
+            @endforeach
+        </select>
+    </div>
+
+
        <div class="form-group">
                 <label for="category_id">Select Category:</label>
                 <select class="form-control" name="category_id" id="category_id">
@@ -36,7 +42,17 @@
                     <option value="{{$data->id}}">{{$data->category_name}}</option>
                     @endforeach
                 </select>
-            </div> 
+            </div>
+
+
+            <div class="form-group">
+                <label for="facility_id">Select Facility:</label>
+                <select class="form-control" name="facility_id" id="facility_id">
+                @foreach($facilities as $data)
+                    <option value="{{$data->id}}">{{$data->name}}</option>
+                    @endforeach
+                </select>
+            </div>
 
 
          <div class="form-group">

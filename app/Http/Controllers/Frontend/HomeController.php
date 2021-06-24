@@ -13,6 +13,7 @@ use App\Models\Facility;
 use App\Models\User;
 use App\Models\Category;
 use Carbon\Carbon;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class HomeController extends Controller
 {
@@ -53,25 +54,41 @@ class HomeController extends Controller
    public function profile()
    {
 
-      $booking=Booking::where('user_id',auth()->user()->id)->get();
+      $booking=Booking::where('user_id',auth()->user()->id)->with('bookingWithPayment')->get();
       //dd($booking);
       return view('frontend.layouts.profile', compact('booking'));
 
 
    }
 
-   public function payment(){
-     return view('frontend.layouts.payment');
-   }
+   public function payment($id){
+        $payment = Booking::where('id', $id)->firstOrFail();
+        return view('frontend.layouts.payment', compact('payment'));
+    }
 
    public function paymentPay(Request $request)
     {
+
+        $request->validate([
+            'payment_amount' => 'min:'
+        ]);
+
+       $booking = Booking::find($request->booking_id);
+        if($booking->total >= $request->payment_amount){
+            $booking->update([
+                'due_amount' => $booking->total - $request->payment_amount
+            ]);
+        }
+        // die();
+
        Payment::create([
         'id'=>$request->id,
         'booking_id'=>$request->booking_id,
+        'room_id'=>$request->room_name,
         'payment_amount'=>$request->payment_amount,
         'payment_method'=>$request->payment_method,
-        'transaction_id'=>$request->transaction_id
+        'transaction_id'=>$request->transaction_id,
+        'status'=>'partial'
        ]);
 
      return back()->with('message', 'Successfully Payment');

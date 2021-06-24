@@ -1,5 +1,7 @@
 @extends('backend.master')
-
+@section('header')
+Facility List
+@endsection
 
 
 @section('content')
@@ -36,13 +38,13 @@
           <td>{{$data->quality}}</td>
           <td>{{$data->status}}</td>
 
-          
+
        <td>
-           
-      
+
+
          <a class="btn btn-success" href="{{route('facility.edit',$data->id)}}">Edit</a>
          <a class="btn btn-danger" href="{{route('facility.delete',$data->id)}}">Delete</a>
- 
+
        </td>
 
 

@@ -12,7 +12,8 @@ class PaymentController extends Controller
     public function list()
     {
         $title= "Payment List";
-        $payments=Payment::all();
+        $payments=Payment::with('paymentWithBooking')->get();
+
         return view('backend.layouts.payment.list', compact('title','payments'));
     }
 
@@ -34,6 +35,7 @@ class PaymentController extends Controller
         'id'=>$request->id,
         'booking_id'=>$request->booking_id,
         'payment_amount'=>$request->payment_amount,
+        'due_amount'=>$request->due_amount,
         'payment_method'=>$request->payment_method,
         'transaction_id'=>$request->transaction_id
 

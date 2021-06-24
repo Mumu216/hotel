@@ -10,13 +10,13 @@
 
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('admin.login')}}">
+              <a class="nav-link active" href="{{ route('admin.login')}}">
                 <span data-feather="file"></span>
                 Admin
               </a>
             </li>
 
-         
+
 
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.users')}}">
@@ -25,18 +25,25 @@
             </a>
           </li>
 
-          
+
           <li class="nav-item">
-            <a class="nav-link" href="{{route('show.booking')}}">
+            <a class="nav-link" href="{{route('booking.new')}}">
               <span data-feather="file"></span>
-              Booking
+              Pending Booking
             </a>
           </li>
 
-            
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('booking.all')}}">
+              <span data-feather="file"></span>
+              All Booking
+            </a>
+          </li>
 
-          
-            
+
+
+
+
           <li class="nav-item">
             <a class="nav-link" href="{{route('payment.list')}}">
               <span data-feather="file"></span>
@@ -45,7 +52,7 @@
           </li>
 
 
-            
+
           <li class="nav-item">
             <a class="nav-link" href="{{route('category.list')}}">
               <span data-feather="file"></span>
@@ -60,19 +67,6 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('room.list')}}">
-              <span data-feather="file"></span>
-              Room 
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('receptionist.list')}}">
-              <span data-feather="file"></span>
-              Receptionist 
-            </a>
-          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('facility.list')}}">
@@ -81,23 +75,42 @@
             </a>
           </li>
 
-          
+
+
+
+
           <li class="nav-item">
-            <a class="nav-link" href="{{route('roomservice.list')}}">
+            <a class="nav-link" href="{{route('room.list')}}">
               <span data-feather="file"></span>
-              Room Service 
+              Room
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('receptionist.list')}}">
+              <span data-feather="file"></span>
+              Receptionist
+            </a>
+          </li>
 
-            <li class="nav-item">
+          
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('roomservice.list')}}">
+              <span data-feather="file"></span>
+              Room Service
+            </a>
+          </li>
+
+          
+          <li class="nav-item">
             <a class="nav-link" href="{{route('booking.report')}}">
               <span data-feather="file"></span>
               Report
             </a>
           </li>
 
-            
+
         </ul>
       </div>
     </nav>

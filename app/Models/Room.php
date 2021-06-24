@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-     
+
     protected $guarded=[];
 
 
@@ -16,6 +16,18 @@ class Room extends Model
     {
 
         return $this->belongsTo(Category::class,'category_id', 'id');
+    }
+
+    public function roomRoomType()
+    {
+
+        return $this->belongsTo(RoomType::class,'roomtype_id', 'id');
+    }
+
+    public function roomFacility()
+    {
+
+        return $this->belongsTo(Facility::class,'facility_id', 'id');
     }
 
     public function booking()

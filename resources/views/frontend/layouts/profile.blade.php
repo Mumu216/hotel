@@ -66,35 +66,56 @@
             </div>
         </div>
 
-
+        @if (Auth::user()->role == 'user')
         <div class="row">
             <h3>Your Booking List</h3>
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Room Name</th>
+                    <th scope="col">Room Type</th>
                     <th scope="col">From Date</th>
                     <th scope="col">to Date</th>
                     <th scope="col">Rate</th>
                     <th scope="col">Total</th>
+                    <th scope="col">Paid</th>
+                    <th scope="col">Due</th>
+                    <th scope="col">Pay Now</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($booking as $data)
+                    @foreach ($booking as $data)
+                {{-- {{ $data->room->roomRoomType->roomtype_name }} --}}
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
-                    <td>{{ $data->room->name }}</td>
+                    <td>{{ $data->room->roomRoomType->roomtype_name  }}</td>
                     <td>{{ $data->booking_from }}</td>
                     <td>{{ $data->booking_to }}</td>
                     <td>{{ $data->rate }}</td>
                     <td>{{ $data->total }}</td>
+                    <td>
+                        @isset($data->bookingWithPayment->payment_amount)
+                        {{ $data->bookingWithPayment->payment_amount }}
+                        @endisset
+                    </td>
+                    <td>
+                        @isset($data->bookingWithPayment->payment_amount)
+                        {{ $data->total - $data->bookingWithPayment->payment_amount }}
+                        @endisset
+                    </td>
+                    <td>
+                        <a href="{{ route('payment', $data->id) }}">pay</a>
+                    </td>
                   </tr>
                 @endforeach
-                  
+
                 </tbody>
               </table>
         </div>
+        @endif
+
+
+
     </div>
 </div>
 

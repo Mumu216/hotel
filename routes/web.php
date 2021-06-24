@@ -19,7 +19,7 @@ use App\Http\Controllers\Frontend\RoomController as FrontendRoomController;
 use App\Http\Controllers\Frontend\Bookingcontroller as FrontendBookingController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
- 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,7 +57,8 @@ Route::get('/logout',[UserController::class,'logout'])->name('logout');
 Route::get('/profile',[HomeController::class,'profile'])->name('profile');
 
 // payment
-Route::get('/payment',[HomeController::class,'payment'])->name('payment');
+// Route::get('/payment',[HomeController::class,'payment'])->name('payment');
+Route::get('/payment/{id}',[HomeController::class,'payment'])->name('payment');
 Route::post('/payment/store',[HomeController::class,'paymentPay'])->name('payment.pay');
 Route::get('/cancel',[HomeController::class,'cancel'])->name('cancel');
 Route::post('/cancel/store',[HomeController::class,'cancelPay'])->name('cancel.pay');
@@ -176,7 +177,8 @@ Route::post('/admin/create',[Ordercontroller::class,'create'])->name('order.crea
 
 //Route::get('/admin/booking', [BookingController::class,'bookinglist'])->name('booking.bookinglist');
 //Route::post('/admin/booking/create',[BookingController::class,'create'])->name('booking.create');
-Route::get('/show/booking',[BookingController::class,'ShowBooking'])->name('show.booking');
+Route::get('/booking/new',[BookingController::class,'bookingNew'])->name('booking.new');
+Route::get('/booking/all',[BookingController::class,'bookingAll'])->name('booking.all');
 Route::get('/show/check-in/{id}',[BookingController::class,'CheckIn'])->name('show.check-in');
 Route::get('/show/check-out/{id}',[BookingController::class,'CheckOut'])->name('show.check-out');
 

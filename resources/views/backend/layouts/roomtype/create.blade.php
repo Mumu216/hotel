@@ -15,7 +15,7 @@
 
        <div class-"form-group">
         <label for="number">Enter RoomType Name </label>
-        <input id="roomtype_name" type="text" name="roomtype_name"  placeholder="Enter "  class="form-control">
+        <input id="roomtype_name" type="text" name="roomtype_name"  placeholder="Enter RoomType Name "  class="form-control">
        </div>
 
        <div class-"form-group">

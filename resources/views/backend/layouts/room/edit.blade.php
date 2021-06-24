@@ -26,7 +26,7 @@
 
        <div class-"form-group">
         <label for="price">Enter Room Price</label>
-        <input value="{{$room->room_price}}" id="price" type="number" name="room_price"  placeholder="Enter Room Price"  class="form-control">
+        <input value="{{$room->price}}" id="price" type="number" name="price"  placeholder="Enter Room Price"  class="form-control">
        </div>
 
 
@@ -37,7 +37,7 @@
                     <option @if($room->category_id==$data->id) selected @endif  value="{{$data->id}}">{{$data->category_name}}</option>
                     @endforeach
                 </select>
-            </div> 
+            </div>
 
 
          <div class="form-group">
