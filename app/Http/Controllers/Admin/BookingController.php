@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Room;
 use Carbon\Carbon;
 
 class BookingController extends Controller
@@ -13,9 +14,9 @@ class BookingController extends Controller
 
     public function bookingNew()
     {
-
+    $room = Room::all();
       $all_Booking = Booking::where('confirm' ,  'Pending')->with(['user','room'])->get();
-       return view('backend.layouts.booking.new',compact('all_Booking'));
+       return view('backend.layouts.booking.new',compact('all_Booking', 'room'));
     }
 
     public function bookingAll()

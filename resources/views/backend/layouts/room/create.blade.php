@@ -12,7 +12,12 @@
         <input id="id" type="number" name="id"  placeholder="Enter Room Id"  class="form-control">
        </div>
 
-      
+       <div class-"form-group">
+        <label for="name">Enter Room Name</label>
+        <input id="name" type="name" name="name"  placeholder="Enter Room Name"  class="form-control">
+       </div>
+
+
        <div class-"form-group">
         <label for="number">Enter Room Number</label>
         <input id="number" type="number" name="room_number"  placeholder="Enter Room Number"  class="form-control">

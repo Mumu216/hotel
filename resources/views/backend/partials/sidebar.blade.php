@@ -9,12 +9,12 @@
 
 
 
-            <li class="nav-item">
+           <!-- <li class="nav-item">
               <a class="nav-link active" href="{{ route('admin.login')}}">
                 <span data-feather="file"></span>
                 Admin
               </a>
-            </li>
+            </li>-->
 
 
 
@@ -51,19 +51,19 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('roomtype.list')}}">
+              <span data-feather="file"></span>
+              Room Type
+            </a>
+          </li>
+
 
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('category.list')}}">
               <span data-feather="file"></span>
                Category
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('roomtype.list')}}">
-              <span data-feather="file"></span>
-              Room Type
             </a>
           </li>
 
@@ -93,16 +93,16 @@
             </a>
           </li>
 
-          
 
-          <li class="nav-item">
+
+         <!-- <li class="nav-item">
             <a class="nav-link" href="{{route('roomservice.list')}}">
               <span data-feather="file"></span>
               Room Service
             </a>
-          </li>
+          </li>-->
 
-          
+
           <li class="nav-item">
             <a class="nav-link" href="{{route('booking.report')}}">
               <span data-feather="file"></span>

@@ -21,6 +21,7 @@ All Payment
        <th scope="col">Due</th>
        <th scope="col">Payment Method</th>
        <th scope="col">Transaction Id</th>
+       <th scope="col">status</th>
        <th scope="col">Action</th>
 
 
@@ -47,6 +48,8 @@ All Payment
        </td>
        <td>{{$data->payment_method}}</td>
        <td>{{$data->transaction_id}}</td>
+       <td>{{$data->status}}</td>
+
 
        <td>
 

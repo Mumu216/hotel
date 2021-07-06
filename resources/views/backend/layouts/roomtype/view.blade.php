@@ -17,30 +17,22 @@
        <th scope="col">Status</th>
        <th scope="col">Description</th>
        <th scope="col">Action</th>
-
-
-
-       </tr>
+     </tr>
        </thead>
-
-
-   <tbody>
+    <tbody>
+        {{-- {{ $roomtypes->relationRoomtypeWithRoom }} --}}
 
    @foreach($roomtypes as $key=> $data)
     <tr>
        <th scope="row">{{$key+1}}</th>
-       <td>{{$data->id}}</td>
-       <td>{{$data->roomtype_name}}</td>
-       <td>{{$data->status}}</td>
-       <td>{{$data->description}}</td>
-
-       <td>
-
-        <a class="btn btn-danger" href="{{route('roomtype.edit',$data->id)}}">Edit</a>
-        {{-- <a class="btn btn-sm btn-warning" href="{{route('roomtype.view',$data->id)}}">View</a> --}}
+       <td>{{ $data->id }}</td>
+       <td>{{ $data->roomtype_name }}</td>
+       <td>{{ $data->status }}</td>
+       <td>{{ $data->description }}</td>
+      <td>
+         <a class="btn btn-danger" href="{{route('roomtype.edit',$data->id)}}">Edit</a>
         <a class="btn btn-primary" href="{{route('roomtype.delete',$data->id)}}">Delete</a>
-
-        </td>
+       </td>
 
        </tr>
        @endforeach

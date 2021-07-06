@@ -16,7 +16,7 @@
                     @csrf
                     <div class="form-group">
                         <div> <strong>Categoey Name:</strong> <span class="">{{ $room->roomCategory->category_name }}</span></div>
-                        <div> <strong>Room Type:</strong> <span class="">{{ $room->roomRoomType->roomtype_name }}</span></div>
+                        {{-- <div> <strong>Room Type:</strong> <span class="">{{ $room->roomRoomType->roomtype_name }}</span></div> --}}
                         <div> <strong>Facilites:</strong> <span class="">{{ $room->roomFacility->name }}</span></div>
                         <div> <strong>Room Number:</strong> <span class="">{{ $room->room_number }}</span></div>
                         <div> <strong>Room Price:</strong> <span class="">{{ $room->price }}</span></div>

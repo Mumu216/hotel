@@ -1,4 +1,9 @@
 @extends('frontend.master')
+
+@section('home')
+text-dark font-weight-bold
+@endsection
+
 @section('content')
 
 <!--================Banner Area =================-->

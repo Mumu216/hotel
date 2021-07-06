@@ -89,6 +89,11 @@ Route::post('/facility',[HomeController::class,'Info'])->name('facility.info');
 
 
 
+
+
+
+
+
 //single page view
 
 Route::get('/show/room/{room_id}',[FrontendRoomController::class,'ShowRoom'])->name('room.show');
@@ -235,6 +240,8 @@ Route::post('/roomtype/store',[RoomTypeController::class,'store'])->name('roomty
 Route::get('/roomtype/delete/{id}',[RoomTypeController::class,'DeleteRoomtype'])->name('roomtype.delete');
 Route::get('/roomtype/edit/{id}',[RoomTypeController::class,'editRoomtype'])->name('roomtype.edit');
 Route::put('/roomtype/update/{id}',[RoomTypeController::class,'updateRoomtype'])->name('roomtype.update');
+Route::get('/roomtype/view/{id}',[RoomTypeController::class,'viewroomtype'])->name('roomtype.view');
+
 
 
 

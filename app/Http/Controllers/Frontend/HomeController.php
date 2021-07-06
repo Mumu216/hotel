@@ -12,6 +12,8 @@ use App\Models\RoomService;
 use App\Models\Facility;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\RoomType;
+
 use Carbon\Carbon;
 use phpDocumentor\Reflection\Types\Boolean;
 
@@ -84,7 +86,7 @@ class HomeController extends Controller
        Payment::create([
         'id'=>$request->id,
         'booking_id'=>$request->booking_id,
-        'room_id'=>$request->room_name,
+        'room_id'=>$request->room_id,
         'payment_amount'=>$request->payment_amount,
         'payment_method'=>$request->payment_method,
         'transaction_id'=>$request->transaction_id,
@@ -117,29 +119,6 @@ class HomeController extends Controller
      return back()-> with('message', 'form fillup Successfully');
     }
 
-    public function roomservice(){
-
-      return view('frontend.layouts.roomservice');
-    }
-
-
-
-    public function storeInfo(Request $request)
-
-    {
-
-        RoomService::create([
-
-        'id'=>$request->id,
-        'name'=>$request->name,
-        'status'=>$request->status,
-        'quality'=>$request->quality,
-        'phone_number'=>$request->phone_number
-
-       ]);
-
-     return back()->with('message' , 'Form fillup Successfully');
-    }
 
 
     public function facility()
@@ -163,6 +142,7 @@ class HomeController extends Controller
 
      return back()->with('message' , 'Form fillup Successfully');
     }
+
 
 
 

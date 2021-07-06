@@ -25,14 +25,14 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-      
+
       Category::create([
 
        'category_name'=>$request->category_name,
        'category_number'=>$request->category_number,
        'status'=>$request->status,
        'description'=>$request->description,
-       
+
 
       ]);
 
@@ -47,12 +47,12 @@ class CategoryController extends Controller
         $category=Category::find($id);
         //dd($room);
         $category->delete();
-    
+
         return redirect()->back()->with('success','Category deleted Successfully');
     }
 
     public function editCategory($id)
-    { 
+    {
       $categories=Category::find($id);
       $room = Room::all();
      // $categories=Category::all();
@@ -63,7 +63,7 @@ class CategoryController extends Controller
 
     public function updateCategory(Request $request,$id )
     {
-       
+
       //dd($id);
       //dd($request->all());
       Category::find($id)->update([
@@ -80,9 +80,11 @@ class CategoryController extends Controller
 
 
 public function viewCategory($id){
-  return view('backend.layouts.category.view', [
-      'category_id' =>  Category::find($id)
- ]);
+
+    $categories =Category::find($id);
+     return view('backend.layouts.category.view' ,compact('categories'));
+
+
 }
 
 

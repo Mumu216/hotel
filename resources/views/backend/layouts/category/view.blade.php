@@ -8,19 +8,19 @@
     <thead>
         <tr>
             <th scope="col">No</th>
-            <th scope="col">RoomType Name</th>
+            <th scope="col">Room Name</th>
             <th scope="col">Room Number</th>
             <th scope="col">Room Price</th>
             <th scope="col">Room image</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($category_id->categoryRoom as $key=>$data)
+        @foreach($categories->categoryRoom as $key=>$data)
         <tr>
             <th scope="row">{{$key+1}}</th>
             <td>
-                {{-- {{ $data->categoryWithRoom_type->roomtype_name }} --}}
-                --
+                {{ $data->name }}
+                
             </td>
             <td>{{ $data->room_number }}</td>
             <td>{{ $data->price }}</td>

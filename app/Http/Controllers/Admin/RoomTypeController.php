@@ -22,18 +22,18 @@ class RoomTypeController extends Controller
         return view('backend.layouts.roomtype.create',compact('title'));
     }
 
-    
+
     public function store(Request $request)
 
     {
 
        RoomType::create([
-        
+
         'id'=>$request->id,
         'roomtype_name'=>$request->roomtype_name,
         'status'=>$request->status,
         'description'=>$request->description,
-    
+
 
        ]);
 
@@ -41,7 +41,7 @@ class RoomTypeController extends Controller
     }
 
 
-    
+
     public function Deleteroomtype($id)
     {
 
@@ -49,14 +49,14 @@ class RoomTypeController extends Controller
         $roomtype=RoomType::find($id);
         //dd($room);
         $roomtype->delete();
-    
+
         return redirect()->back()->with('success','Roomtype deleted Successfully');
     }
 
     public function editRoomtype($id)
-    { 
+    {
       $roomtypes=RoomType::find($id);
-      
+
      // $categories=Category::all();
      // dd($id);
       return view('backend.layouts.roomtype.edit',compact('roomtypes'));
@@ -65,21 +65,32 @@ class RoomTypeController extends Controller
 
     public function updateRoomtype(Request $request,$id )
     {
-       
+
       //dd($id);
       //dd($request->all());
       RoomType::find($id)->update([
 
-              
+
         'id'=>$request->id,
         'roomtype_name'=>$request->roomtype_name,
         'status'=>$request->status,
         'description'=>$request->description,
 
-     
+
       ]);
 
       return redirect()->route('roomtype.list')->with('success','Updated Successfully');
 
     }
+
+
+public function viewroomtype($id){
+
+    // dd($id);
+    // die();
+    $roomtypes =RoomType::find($id);
+     return view('backend.layouts.roomtype.view' ,compact('roomtypes'));
+
+}
+
 }

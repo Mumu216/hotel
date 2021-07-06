@@ -62,11 +62,6 @@ class RoomController extends Controller
 
     {
 
-
-
-       // dd($request->all());
-
-
        $filename = '';
        if($request->hasFile('image'))
 
@@ -80,18 +75,14 @@ class RoomController extends Controller
           //  dd($filename());
 
             $file->storeAs('room',$filename);
-
-
          }
-
-
        }
-
 
 
         Room::create([
 
           'id'=>$request->id,
+          'name'=>$request->name,
           'room_number'=>$request->room_number,
           'price'=>$request-> room_price,
           'category_id'=>$request->category_id,

@@ -37,7 +37,8 @@ class PaymentController extends Controller
         'payment_amount'=>$request->payment_amount,
         'due_amount'=>$request->due_amount,
         'payment_method'=>$request->payment_method,
-        'transaction_id'=>$request->transaction_id
+        'transaction_id'=>$request->transaction_id,
+        'status'=>$request->status
 
        ]);
 

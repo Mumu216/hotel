@@ -1,5 +1,7 @@
 @extends('frontend.master')
-
+@section('profile')
+text-dark font-weight-bold
+@endsection
 
 @section('content')
 
@@ -73,7 +75,7 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Room Type</th>
+                    <th scope="col">Room Name</th>
                     <th scope="col">From Date</th>
                     <th scope="col">to Date</th>
                     <th scope="col">Rate</th>
@@ -88,7 +90,7 @@
                 {{-- {{ $data->room->roomRoomType->roomtype_name }} --}}
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
-                    <td>{{ $data->room->roomRoomType->roomtype_name  }}</td>
+                    <td>{{ $data->room->name  }}</td>
                     <td>{{ $data->booking_from }}</td>
                     <td>{{ $data->booking_to }}</td>
                     <td>{{ $data->rate }}</td>

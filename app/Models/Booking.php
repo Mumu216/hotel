@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\Hasfactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Booking extends Model
 {
@@ -20,7 +21,7 @@ class Booking extends Model
 
     public function room()
     {
-        return $this->belongsTo(Room::class, 'room_id','id');
+        return $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
     public function bookingWithPayment(){

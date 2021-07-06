@@ -9,10 +9,10 @@ use App\Models\Booking;
 
 class ReportController extends Controller
 {
-    
+
     public function bookingReport()
     {
-          
+
         $all_Booking=[];
         $fromDate='';
         $toDate='';
@@ -24,14 +24,8 @@ class ReportController extends Controller
             $fromDate=date('Y-m-d',strtotime($_GET['from_date']));
             $toDate=date('Y-m-d',strtotime($_GET['to_date']));
 
-            
-
-
-
-        // $all_Booking=Booking::whereDate('booking_from',$fromDate)->get();
+         // $all_Booking=Booking::whereDate('booking_from',$fromDate)->get();
          $all_Booking=Booking::whereBetween('booking_from',[$fromDate,$toDate])->get();
-
-    
 
         }
 

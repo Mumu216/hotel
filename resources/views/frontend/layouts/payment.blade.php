@@ -17,19 +17,14 @@
             @endif
             <form action="{{ route('payment.pay')}}" method="post">
                 @csrf
-                <div class-"form-group">
-                    <label for="booking_id">Enter Booking Id</label>
-                    <input id="booking_id" type="number" name="booking_id" value="{{ $payment->id }}"
-                        class="form-control">
+                <div class="form-group">
+                    <div> <strong>Booking Id:</strong> <span class="">{{ $payment->id }}</span></div>
+                    <div> <strong>Room Name:</strong> <span class="">{{ $payment->room->name }}</span></div>
                 </div>
-                {{-- {{ $payment->room }} --}}
-                {{-- {{ App\Models\RoomType::find($payment->room->roomtype_id)->roomtype_name }} --}}
                 <div class-"form-group">
-                    <label for="room_id">Room TYpe</label>
-                    <input id="room_id" type="text" name="room_name" value="{{ App\Models\RoomType::find($payment->room->roomtype_id)->roomtype_name }}"
-                        class="form-control">
+                    <input id="booking_id" type="hidden" name="booking_id" value="{{ $payment->id }}">
+                    <input id="room_id" type="hidden" name="room_name" value="{{ $payment->room->name }}">
                 </div>
-
 
                 <div class-"form-group">
                     <label for="payment_method">Enter Payment Method</label>
